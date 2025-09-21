@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Import the same fonts as the main site */
+@font-face {
+  font-family: "UthmanicHafs";
+  src: url("/fonts/UthmanicHafs_V22.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "29LTRiwaya";
+  src: url("/fonts/29LTRiwaya-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* MTWS Brand Colors */
+  --high-contrast-black: #000000;
+  --deep-forest-green: #132a1a;
+  --primary-green: #407550;
+  --olive-green: #82894d;
+  --sandy-gold: #e7d296;
+  --warm-background: #fdfbf5;
+}
+
+body {
+  font-family: var(--font-dm-sans), sans-serif;
+  background-color: var(--warm-background);
+  color: var(--high-contrast-black);
+}
+
+/* Utility classes for brand colors */
+.bg-high-contrast-black {
+  background-color: var(--high-contrast-black);
+}
+
+.bg-deep-forest-green {
+  background-color: var(--deep-forest-green);
+}
+
+.bg-primary-green {
+  background-color: var(--primary-green);
+}
+
+.bg-olive-green {
+  background-color: var(--olive-green);
+}
+
+.bg-sandy-gold {
+  background-color: var(--sandy-gold);
+}
+
+.bg-warm-background {
+  background-color: var(--warm-background);
+}
+
+.text-high-contrast-black {
+  color: var(--high-contrast-black);
+}
+
+.text-deep-forest-green {
+  color: var(--deep-forest-green);
+}
+
+.text-primary-green {
+  color: var(--primary-green);
+}
+
+.text-olive-green {
+  color: var(--olive-green);
+}
+
+.text-sandy-gold {
+  color: var(--sandy-gold);
+}
+
+.text-warm-background {
+  color: var(--warm-background);
+}
+
+/* Border utilities */
+.border-primary-green {
+  border-color: var(--primary-green);
+}
+
+.border-deep-forest-green {
+  border-color: var(--deep-forest-green);
+}
+
+.font-dm-sans {
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+.font-roboto {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+.font-riwaya {
+  font-family: "29LTRiwaya" !important;
+}
+
+.font-uthmanic {
+  font-family: "UthmanicHafs" !important;
+  font-size: 1.25rem !important;
+  line-height: 1.8 !important;
+}
