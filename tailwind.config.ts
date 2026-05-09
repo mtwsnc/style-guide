@@ -1,9 +1,9 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 export default {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "../src/components/**/*.{js,ts,jsx,tsx}", // Reference main project components
+    "../src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -14,55 +14,79 @@ export default {
         riwaya: ["29LTRiwaya", "serif"],
       },
       colors: {
-        // MTWS Brand Colors - using the actual hex values
+        /* ── Brand Palette ─── */
         "high-contrast-black": "#000000",
-        "deep-forest-green": "#132a1a",
-        "primary-green": "#407550",
-        "olive-green": "#82894d",
-        "sandy-gold": "#e7d296",
-        "warm-background": "#fdfbf5",
-        
-        // Standard Tailwind colors for UI components
-        border: "#e5e7eb",
-        input: "#e5e7eb", 
-        ring: "#6366f1",
-        background: "#ffffff",
-        foreground: "#111827",
+        "deep-forest-green":   "#132a1a",
+        "primary-green":       "#407550",
+        "olive-green":         "#82894d",
+        "sandy-gold":          "#e7d296",
+        "warm-background":     "#fdfbf5",
+
+        /* ── Semantic tokens (map to CSS vars) ─── */
+        "brand-primary":   "var(--color-primary)",
+        "brand-secondary": "var(--color-secondary)",
+        "brand-tertiary":  "var(--color-tertiary)",
+        "brand-accent":    "var(--color-accent)",
+
+        /* ── Shadcn-compatible tokens ─── */
+        border:     "#e5e7eb",
+        input:      "#e5e7eb",
+        ring:       "#407550",
+        background: "#fdfbf5",
+        foreground: "#000000",
         primary: {
-          DEFAULT: "#407550", // Use our primary green
+          DEFAULT:    "#407550",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#f3f4f6",
-          foreground: "#111827",
+          DEFAULT:    "#e7d296",
+          foreground: "#132a1a",
         },
         destructive: {
-          DEFAULT: "#ef4444",
+          DEFAULT:    "#b91c1c",
           foreground: "#ffffff",
         },
         muted: {
-          DEFAULT: "#f9fafb",
+          DEFAULT:    "#f9fafb",
           foreground: "#6b7280",
         },
         accent: {
-          DEFAULT: "#f3f4f6",
+          DEFAULT:    "#f3f4f6",
           foreground: "#111827",
         },
         popover: {
-          DEFAULT: "#ffffff",
+          DEFAULT:    "#ffffff",
           foreground: "#111827",
         },
         card: {
-          DEFAULT: "#ffffff",
+          DEFAULT:    "#ffffff",
           foreground: "#111827",
         },
       },
       borderRadius: {
-        lg: "0.625rem",
-        md: "calc(0.625rem - 2px)",
-        sm: "calc(0.625rem - 4px)",
+        /* Match design system radii */
+        sm:   "4px",
+        md:   "8px",
+        lg:   "10px",
+        xl:   "16px",
+        "2xl": "24px",
+        full: "9999px",
+      },
+      spacing: {
+        /* 8px grid design tokens */
+        "space-xs":      "4px",
+        "space-sm":      "8px",
+        "space-md":      "16px",
+        "space-lg":      "24px",
+        "space-xl":      "32px",
+        "space-2xl":     "48px",
+        "space-3xl":     "64px",
+        "space-section": "80px",
+      },
+      maxWidth: {
+        container: "1200px",
       },
     },
   },
   plugins: [],
-} satisfies Config;
+} satisfies Config

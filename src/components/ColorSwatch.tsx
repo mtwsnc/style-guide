@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 
 interface ColorSwatchProps {
   name: string;
+  token?: string;
   value: string;
   description: string;
   usage: string[];
 }
 
-export function ColorSwatch({ name, value, description, usage }: ColorSwatchProps) {
+export function ColorSwatch({ name, token, value, description, usage }: ColorSwatchProps) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {
@@ -36,13 +37,16 @@ export function ColorSwatch({ name, value, description, usage }: ColorSwatchProp
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
           <h3 className="font-semibold text-gray-900">{name}</h3>
-          <code 
+          <code
             className="text-xs bg-gray-100 px-2 py-1 rounded cursor-pointer hover:bg-gray-200 transition-colors"
             onClick={copyToClipboard}
           >
             {value}
           </code>
         </div>
+        {token && (
+          <code className="text-xs text-olive-green font-mono mb-2 block">{token}</code>
+        )}
         <p className="text-sm text-gray-600 mb-3">{description}</p>
         <div>
           <h4 className="text-xs font-medium text-gray-900 mb-1">Usage:</h4>

@@ -10,39 +10,45 @@ export default function FoundationsPage() {
   const brandColors = [
     {
       name: "High Contrast Black",
+      token: "--color-text-primary",
       value: "#000000",
       description: "Primary text color for maximum readability",
       usage: ["Body text", "Headlines", "High-contrast elements"]
     },
     {
       name: "Deep Forest Green",
+      token: "--color-secondary",
       value: "#132a1a",
-      description: "Dark brand accent color for depth and sophistication",
-      usage: ["Logo", "Primary navigation", "Section headers"]
+      description: "Dark brand accent for depth and sophistication",
+      usage: ["Logo", "Primary navigation", "Section headers", "Hero backgrounds"]
     },
     {
       name: "Primary Green",
+      token: "--color-primary",
       value: "#407550",
-      description: "Main brand color representing growth and harmony",
+      description: "Forest Green — primary brand color for actions and interaction",
       usage: ["Primary buttons", "Links", "Active states", "Call-to-actions"]
     },
     {
       name: "Olive Green",
+      token: "--color-tertiary",
       value: "#82894d",
       description: "Secondary brand color for balance and natural feel",
-      usage: ["Secondary buttons", "Borders", "Subtle accents"]
+      usage: ["Metadata", "Secondary labels", "Decorative dividers"]
     },
     {
       name: "Sandy Gold",
+      token: "--color-accent",
       value: "#e7d296",
-      description: "Warm accent color for highlights and emphasis",
-      usage: ["Highlights", "Special buttons", "Accent elements"]
+      description: "Warm accent for highlights, badges, and Quranic verse accents",
+      usage: ["Badges", "Highlights", "Quranic verse borders", "Feature icon backgrounds"]
     },
     {
-      name: "Warm Background",
+      name: "Warm Parchment",
+      token: "--color-bg-page",
       value: "#fdfbf5",
-      description: "Main background color providing warmth and readability",
-      usage: ["Page backgrounds", "Card backgrounds", "Content areas"]
+      description: "Page background — never pure white",
+      usage: ["Page backgrounds", "Section backgrounds"]
     }
   ];
 
@@ -50,72 +56,97 @@ export default function FoundationsPage() {
     {
       element: "h1",
       className: "text-5xl font-bold",
-      fontSize: "3rem (48px)",
+      fontSize: "48px",
       lineHeight: "1.1",
       fontWeight: "700 (Bold)",
-      text: "Page Title - The largest heading for main page titles"
+      token: "--text-headline-lg-*",
+      text: "Headline LG — Main page titles and hero headings"
     },
     {
       element: "h2",
       className: "text-3xl font-bold",
-      fontSize: "1.875rem (30px)",
+      fontSize: "32px",
       lineHeight: "1.2",
       fontWeight: "700 (Bold)",
-      text: "Section Title - For major content sections"
+      token: "--text-headline-md-*",
+      text: "Headline MD — Section titles and feature headings"
     },
     {
       element: "h3",
-      className: "text-xl font-semibold",
-      fontSize: "1.25rem (20px)",
+      className: "text-2xl font-semibold",
+      fontSize: "24px",
       lineHeight: "1.3",
       fontWeight: "600 (Semibold)",
-      text: "Subsection Title - For content subsections"
+      token: "--text-headline-sm-*",
+      text: "Headline SM — Subsection headings and card titles"
+    },
+    {
+      element: "p",
+      className: "text-lg",
+      fontSize: "18px",
+      lineHeight: "1.7",
+      fontWeight: "400 (Regular)",
+      token: "--text-body-lg-*",
+      text: "Body LG — Lead paragraphs, intro text, key descriptions."
     },
     {
       element: "p",
       className: "text-base",
-      fontSize: "1rem (16px)",
+      fontSize: "16px",
       lineHeight: "1.6",
       fontWeight: "400 (Regular)",
-      text: "Body Text - Regular paragraph text for content. This is the most commonly used text style for reading content."
+      token: "--text-body-md-*",
+      text: "Body MD — Standard body copy for most content. Used throughout pages."
     },
     {
       element: "small",
       className: "text-sm text-gray-600",
-      fontSize: "0.875rem (14px)",
+      fontSize: "14px",
       lineHeight: "1.5",
       fontWeight: "400 (Regular)",
-      text: "Small Text - For captions, metadata, and secondary information"
+      token: "--text-body-sm-*",
+      text: "Body SM — Captions, metadata, and secondary information"
     }
   ];
 
   const arabicSamples = [
     {
-      element: "Arabic Uthmanic",
-      className: "font-uthmanic text-xl",
-      fontSize: "1.25rem (20px)",
+      element: "Quranic (UthmanicHafs)",
+      className: "font-uthmanic",
+      fontSize: "28px",
       lineHeight: "1.8",
       fontWeight: "400 (Regular)",
+      token: "--font-arabic-quran",
       text: "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
     },
     {
-      element: "Arabic Riwaya",
-      className: "font-riwaya text-lg",
-      fontSize: "1.125rem (18px)",
-      lineHeight: "1.7",
+      element: "Arabic Body (29LTRiwaya)",
+      className: "font-riwaya text-xl",
+      fontSize: "20px",
+      lineHeight: "1.8",
       fontWeight: "400 (Regular)",
-      text: "مسجد التوحيد والسنة"
+      token: "--font-arabic-body",
+      text: "مسجد التوحيد والسنة — دورهام، كارولاينا الشمالية"
     }
   ];
 
   const spacingValues = [
-    { name: "xs", value: "0.25rem", pixels: "4px", usage: "Minimal spacing, icon gaps" },
-    { name: "sm", value: "0.5rem", pixels: "8px", usage: "Small component padding" },
-    { name: "md", value: "1rem", pixels: "16px", usage: "Standard component spacing" },
-    { name: "lg", value: "1.5rem", pixels: "24px", usage: "Section spacing, card padding" },
-    { name: "xl", value: "2rem", pixels: "32px", usage: "Large section breaks" },
-    { name: "2xl", value: "3rem", pixels: "48px", usage: "Major page sections" },
-    { name: "3xl", value: "4rem", pixels: "64px", usage: "Hero sections, page headers" }
+    { name: "xs",      token: "--space-xs",      value: "4px",  usage: "Icon gaps, minimal padding" },
+    { name: "sm",      token: "--space-sm",      value: "8px",  usage: "Tight component spacing, badge padding" },
+    { name: "md",      token: "--space-md",      value: "16px", usage: "Standard spacing between elements" },
+    { name: "lg",      token: "--space-lg",      value: "24px", usage: "Card padding, section gutters" },
+    { name: "xl",      token: "--space-xl",      value: "32px", usage: "Large section breaks" },
+    { name: "2xl",     token: "--space-2xl",     value: "48px", usage: "Major section separation" },
+    { name: "3xl",     token: "--space-3xl",     value: "64px", usage: "Hero sections, page headers" },
+    { name: "section", token: "--space-section", value: "80px", usage: "Full page section padding" },
+  ];
+
+  const radiusValues = [
+    { name: "sm",   token: "--radius-sm",   value: "4px",    usage: "Badges, chips, tags" },
+    { name: "md",   token: "--radius-md",   value: "8px",    usage: "Buttons, inputs, form elements" },
+    { name: "lg",   token: "--radius-lg",   value: "10px",   usage: "Cards, modals, panels" },
+    { name: "xl",   token: "--radius-xl",   value: "16px",   usage: "Large feature cards, image containers" },
+    { name: "full", token: "--radius-full", value: "9999px", usage: "Pill badges only" },
   ];
 
   return (
@@ -142,6 +173,7 @@ export default function FoundationsPage() {
               <ColorSwatch
                 key={index}
                 name={color.name}
+                token={color.token}
                 value={color.value}
                 description={color.description}
                 usage={color.usage}
@@ -228,9 +260,9 @@ export default function FoundationsPage() {
           </div>
         </Section>
 
-        <Section 
-          title="Spacing & Layout" 
-          description="Consistent spacing creates visual rhythm and hierarchy. Our spacing system is based on a 4px grid for precise alignment."
+        <Section
+          title="Spacing & Layout"
+          description="Consistent spacing creates visual rhythm and hierarchy. Our system uses an 8px base grid: 4 · 8 · 16 · 24 · 32 · 48 · 64 · 80px. Container max-width: 1200px, gutters: 24px."
         >
           <SpacingScale values={spacingValues} />
           
@@ -255,8 +287,32 @@ export default function FoundationsPage() {
           </div>
         </Section>
 
-        <Section 
-          title="Iconography" 
+        <Section
+          title="Corner Radii"
+          description="A consistent radius scale prevents mixing sharp and rounded corners within the same view. Use Tailwind class names (rounded-sm, rounded-md, rounded-lg, rounded-xl, rounded-full) or the CSS tokens directly."
+        >
+          <div className="bg-white rounded-lg border shadow-sm p-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+              {radiusValues.map((r) => (
+                <div key={r.name} className="flex flex-col items-center gap-3">
+                  <div
+                    className="w-16 h-16 bg-sandy-gold border-2 border-primary-green"
+                    style={{ borderRadius: r.value }}
+                  />
+                  <div className="text-center">
+                    <code className="text-xs bg-gray-100 px-2 py-1 rounded block mb-1">rounded-{r.name}</code>
+                    <span className="text-xs text-gray-500 block">{r.value}</span>
+                    <code className="text-xs text-olive-green font-mono block mt-1">{r.token}</code>
+                  </div>
+                  <p className="text-xs text-gray-500 text-center">{r.usage}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        <Section
+          title="Iconography"
           description="We use Lucide React icons for their consistency, clarity, and comprehensive coverage of common UI needs."
         >
           <div className="bg-white rounded-lg border shadow-sm p-6">

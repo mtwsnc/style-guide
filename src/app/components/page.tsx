@@ -1,25 +1,29 @@
 'use client';
 
-import { Navigation } from '@/components/Navigation';
-import { Section } from '@/components/Section';
-import { ComponentShowcase } from '@/components/ComponentShowcase';
-import { Button } from '@/components/ui/Button';
-import AudioPlayer from '@/components/ui/AudioPlayer';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card';
-import { Input } from '@/components/ui/Input';
-import Breadcrumb from '@/components/ui/Breadcrumb';
-import { Link, Hash, Component, Play, Navigation as NavIcon, AlertCircle, Layout } from 'lucide-react';
+import { Navigation } from '@/components/Navigation'
+import { Section } from '@/components/Section'
+import { ComponentShowcase } from '@/components/ComponentShowcase'
+import { Button } from '@/components/ui/Button'
+import { Badge } from '@/components/ui/Badge'
+import { QuranVerseBlock } from '@/components/ui/QuranVerseBlock'
+import AudioPlayer from '@/components/ui/AudioPlayer'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card'
+import { Input } from '@/components/ui/Input'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import { Link, Hash, Component, Play, Navigation as NavIcon, AlertCircle, Layout, Tag, BookOpen } from 'lucide-react'
 
 export default function ComponentsPage() {
   const componentSections = [
-    { id: 'audio', title: 'Audio Player', icon: Play, description: 'Media playback with controls' },
-    { id: 'buttons', title: 'Buttons', icon: Component, description: 'Interactive buttons and actions' },
-    { id: 'cards', title: 'Cards', icon: Layout, description: 'Content containers' },
-    { id: 'forms', title: 'Forms & Inputs', icon: Hash, description: 'Form elements and inputs' },
-    { id: 'navigation', title: 'Navigation', icon: NavIcon, description: 'Navigation components' },
-    { id: 'status', title: 'Status & Feedback', icon: AlertCircle, description: 'Alerts and status indicators' },
-    { id: 'layout', title: 'Layout Components', icon: Layout, description: 'Structural layout elements' },
-  ];
+    { id: 'audio',     title: 'Audio Player',       icon: Play,      description: 'Media playback with controls' },
+    { id: 'buttons',   title: 'Buttons',             icon: Component, description: 'Interactive buttons and actions' },
+    { id: 'badges',    title: 'Badges',              icon: Tag,       description: 'Status indicators and labels' },
+    { id: 'cards',     title: 'Cards',               icon: Layout,    description: 'Content containers' },
+    { id: 'quran',     title: 'Quranic Verse Block', icon: BookOpen,  description: 'Arabic verse display with translation' },
+    { id: 'forms',     title: 'Forms & Inputs',      icon: Hash,      description: 'Form elements and inputs' },
+    { id: 'navigation',title: 'Navigation',          icon: NavIcon,   description: 'Navigation components' },
+    { id: 'status',    title: 'Status & Feedback',   icon: AlertCircle, description: 'Alerts and status indicators' },
+    { id: 'layout',    title: 'Layout Components',   icon: Layout,    description: 'Structural layout elements' },
+  ]
 
   return (
     <div className="min-h-screen bg-warm-background">
@@ -102,29 +106,22 @@ export default function ComponentsPage() {
           <div id="buttons">
           <ComponentShowcase
             title="Button Variants"
-            description="Different button styles for various contexts and emphasis levels."
-            code={`import { Button } from '@/components/ui/Button';
+            description="All six button variants. Primary fills to Deep Forest on hover; Outline fills with Primary Green; Secondary uses Sandy Gold."
+            code={`import { Button } from '@/components/ui/Button'
 
-// Primary button (default)
-<Button>Primary Button</Button>
-
-// Secondary button with outline
-<Button variant="outline">Secondary Button</Button>
-
-// Destructive button for dangerous actions
-<Button variant="destructive">Delete</Button>
-
-// Ghost button for subtle actions
-<Button variant="ghost">Ghost Button</Button>
-
-// Link style button
-<Button variant="link">Link Button</Button>`}
+<Button>Primary</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="link">Link</Button>`}
           >
-            <Button>Primary Button</Button>
-            <Button variant="outline">Secondary Button</Button>
-            <Button variant="destructive">Delete</Button>
-            <Button variant="ghost">Ghost Button</Button>
-            <Button variant="link">Link Button</Button>
+            <Button>Primary</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="destructive">Destructive</Button>
+            <Button variant="link">Link</Button>
           </ComponentShowcase>
 
           <ComponentShowcase
@@ -186,8 +183,55 @@ export default function ComponentsPage() {
           </div>
         </Section>
 
-        <Section 
-          title="Cards" 
+        <Section
+          title="Badges"
+          description="Color-coded badge variants for status indicators and labels. Use Sandy Gold for upcoming events, Green for live/active, and the semantic variants for feedback states."
+        >
+          <div id="badges">
+            <ComponentShowcase
+              title="Badge Variants"
+              description="Six badge styles covering event status, alerts, and categorization."
+              code={`import { Badge } from '@/components/ui/Badge'
+
+<Badge variant="gold">Upcoming</Badge>
+<Badge variant="green">Live</Badge>
+<Badge variant="outline">Register</Badge>
+<Badge variant="gray">Completed</Badge>
+<Badge variant="red">Cancelled</Badge>
+<Badge variant="blue">New</Badge>`}
+            >
+              <Badge variant="gold">Upcoming</Badge>
+              <Badge variant="green">Live</Badge>
+              <Badge variant="outline">Register</Badge>
+              <Badge variant="gray">Completed</Badge>
+              <Badge variant="red">Cancelled</Badge>
+              <Badge variant="blue">New</Badge>
+            </ComponentShowcase>
+
+            <ComponentShowcase
+              title="Badges in Context"
+              description="Badges used alongside card content to indicate event status."
+              code={`<div className="flex items-start gap-3">
+  <Badge variant="gold">Upcoming</Badge>
+  <div>
+    <h3 className="font-semibold">Understanding Tawheed</h3>
+    <p className="text-sm text-gray-600">Shaykh Rasheed Barbee · Dec 15</p>
+  </div>
+</div>`}
+            >
+              <div className="flex items-start gap-3">
+                <Badge variant="gold">Upcoming</Badge>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Understanding Tawheed</h3>
+                  <p className="text-sm text-gray-600">Shaykh Rasheed Barbee · Dec 15</p>
+                </div>
+              </div>
+            </ComponentShowcase>
+          </div>
+        </Section>
+
+        <Section
+          title="Cards"
           description="Flexible content containers with consistent styling and spacing."
         >
           <div id="cards">
@@ -272,8 +316,53 @@ import { Button } from '@/components/ui/Button';
           </div>
         </Section>
 
-        <Section 
-          title="Forms & Inputs" 
+        <Section
+          title="Quranic Verse Block"
+          description="Used to display Quranic verses and Islamic quotations. Always shows Arabic text with an English translation and source reference. Never substitute UthmanicHafs for Quranic text."
+        >
+          <div id="quran">
+            <ComponentShowcase
+              title="Sandy Gold Variant (Quranic)"
+              description="Uses UthmanicHafs font with a Sandy Gold left border — the default for Quranic verses."
+              code={`import { QuranVerseBlock } from '@/components/ui/QuranVerseBlock'
+
+<QuranVerseBlock
+  arabic="وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ"
+  translation="And I did not create the jinn and mankind except to worship Me."
+  source="Surah Adh-Dhariyat 51:56"
+/>`}
+            >
+              <QuranVerseBlock
+                arabic="وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ"
+                translation="And I did not create the jinn and mankind except to worship Me."
+                source="Surah Adh-Dhariyat 51:56"
+                className="w-full max-w-xl"
+              />
+            </ComponentShowcase>
+
+            <ComponentShowcase
+              title="Primary Green Variant (Arabic Body)"
+              description="Uses 29LTRiwaya font with a Primary Green left border — for general Arabic quotations and hadith."
+              code={`<QuranVerseBlock
+  variant="green"
+  arabic="الحمد لله رب العالمين"
+  translation="All praise is due to Allah, Lord of the worlds."
+  source="Surah Al-Fatihah 1:2"
+/>`}
+            >
+              <QuranVerseBlock
+                variant="green"
+                arabic="الحمد لله رب العالمين"
+                translation="All praise is due to Allah, Lord of the worlds."
+                source="Surah Al-Fatihah 1:2"
+                className="w-full max-w-xl"
+              />
+            </ComponentShowcase>
+          </div>
+        </Section>
+
+        <Section
+          title="Forms & Inputs"
           description="Form elements with consistent styling and validation states."
         >
           <ComponentShowcase
