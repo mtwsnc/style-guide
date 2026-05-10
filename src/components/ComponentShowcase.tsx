@@ -1,6 +1,6 @@
 "use client"
 
-import React, { type ReactNode } from "react"
+import type { ReactNode } from "react"
 
 interface ComponentShowcaseProps {
   title: string
@@ -11,29 +11,29 @@ interface ComponentShowcaseProps {
 
 export function ComponentShowcase({ title, description, children, code }: ComponentShowcaseProps) {
   return (
-    <div className="mb-12 p-6 border border-gray-200 rounded-lg bg-white">
+    <div className="mb-12 rounded-lg border border-gray-200 bg-white p-6">
       <div className="mb-4">
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+        <h3 className="mb-2 font-semibold text-gray-900 text-xl">{title}</h3>
         {description && <p className="text-gray-600">{description}</p>}
       </div>
 
       {/* Live Component Demo */}
-      <div className="mb-6 p-6 bg-gray-50 rounded-lg border">
-        <div className="flex flex-wrap gap-4 items-center">{children}</div>
+      <div className="mb-6 rounded-lg border bg-gray-50 p-6">
+        <div className="flex flex-wrap items-center gap-4">{children}</div>
       </div>
 
       {/* Code Example */}
-      <div className="bg-gray-900 rounded-lg p-4 text-sm">
-        <div className="flex justify-between items-center mb-2">
+      <div className="rounded-lg bg-gray-900 p-4 text-sm">
+        <div className="mb-2 flex items-center justify-between">
           <span className="text-gray-400 text-xs">React/TypeScript</span>
           <button
             onClick={() => navigator.clipboard.writeText(code)}
-            className="text-gray-400 hover:text-white text-xs px-2 py-1 rounded hover:bg-gray-700 transition-colors"
+            className="rounded px-2 py-1 text-gray-400 text-xs transition-colors hover:bg-gray-700 hover:text-white"
           >
             Copy
           </button>
         </div>
-        <pre className="text-gray-300 overflow-x-auto">
+        <pre className="overflow-x-auto text-gray-300">
           <code>{code}</code>
         </pre>
       </div>

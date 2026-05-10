@@ -161,12 +161,12 @@ body {
   font-family: var(--font-roboto), sans-serif;
 }
 .font-riwaya {
-  font-family: "29LTRiwaya" !important;
+  font-family: "29LTRiwaya";
 }
 .font-uthmanic {
-  font-family: "UthmanicHafs" !important;
-  font-size: 1.25rem !important;
-  line-height: 1.8 !important;
+  font-family: "UthmanicHafs";
+  font-size: 1.25rem;
+  line-height: 1.8;
 }
 
 /* ── Quranic Verse Block ─────────────────────────────────── */

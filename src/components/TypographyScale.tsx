@@ -1,5 +1,3 @@
-import React from "react"
-
 interface TypographyScaleProps {
   title: string
   samples: {
@@ -14,12 +12,12 @@ interface TypographyScaleProps {
 
 export function TypographyScale({ title, samples }: TypographyScaleProps) {
   return (
-    <div className="bg-white rounded-lg border shadow-sm p-6">
-      <h3 className="text-xl font-semibold text-gray-900 mb-6">{title}</h3>
+    <div className="rounded-lg border bg-white p-6 shadow-sm">
+      <h3 className="mb-6 font-semibold text-gray-900 text-xl">{title}</h3>
       <div className="space-y-6">
         {samples.map((sample, index) => (
-          <div key={index} className="border-b border-gray-100 pb-4 last:border-b-0">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
+          <div key={index} className="border-gray-100 border-b pb-4 last:border-b-0">
+            <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3">
               {/* Typography Sample */}
               <div className="lg:col-span-2">
                 <div
@@ -36,13 +34,13 @@ export function TypographyScale({ title, samples }: TypographyScaleProps) {
 
               {/* Typography Details */}
               <div className="lg:col-span-1">
-                <div className="text-sm text-gray-600 space-y-1">
+                <div className="space-y-1 text-gray-600 text-sm">
                   <div>
                     <strong>Element:</strong> {sample.element}
                   </div>
                   <div>
                     <strong>Class:</strong>{" "}
-                    <code className="bg-gray-100 px-1 rounded">{sample.className}</code>
+                    <code className="rounded bg-gray-100 px-1">{sample.className}</code>
                   </div>
                   <div>
                     <strong>Size:</strong> {sample.fontSize}

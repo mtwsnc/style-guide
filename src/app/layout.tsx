@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${roboto.variable} antialiased min-h-screen`}
+        className={`${dmSans.variable} ${roboto.variable} min-h-screen antialiased`}
         style={{ backgroundColor: "var(--warm-background)" }}
       >
         {children}

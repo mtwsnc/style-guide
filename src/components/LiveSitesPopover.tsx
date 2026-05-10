@@ -82,22 +82,20 @@ export const LiveSitesPopover: React.FC = () => {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
-        className={`
-          flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200
-          ${
-            isOpen
-              ? "bg-primary-green text-white shadow-md"
-              : "text-gray-700 hover:text-primary-green hover:bg-gray-50"
-          }
+        className={`flex items-center gap-2 rounded-lg px-4 py-2 font-medium text-sm transition-all duration-200 ${
+          isOpen
+            ? "bg-primary-green text-white shadow-md"
+            : "text-gray-700 hover:bg-gray-50 hover:text-primary-green"
+        }
         `}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label="View live MTWS websites"
       >
-        <Globe className="w-4 h-4" />
+        <Globe className="h-4 w-4" />
         Live Sites
         <svg
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -109,13 +107,13 @@ export const LiveSitesPopover: React.FC = () => {
       {isOpen && (
         <div
           ref={popoverRef}
-          className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50 animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-200"
+          className="fade-in-0 zoom-in-95 slide-in-from-top-2 absolute top-full left-0 z-50 mt-2 w-80 animate-in rounded-xl border border-gray-200 bg-white py-2 shadow-xl duration-200"
           role="menu"
           aria-label="Live MTWS websites"
         >
-          <div className="px-4 py-3 border-b border-gray-100">
-            <h3 className="text-sm font-semibold text-gray-900">MTWS Digital Ecosystem</h3>
-            <p className="text-xs text-gray-500 mt-1">Access our live websites</p>
+          <div className="border-gray-100 border-b px-4 py-3">
+            <h3 className="font-semibold text-gray-900 text-sm">MTWS Digital Ecosystem</h3>
+            <p className="mt-1 text-gray-500 text-xs">Access our live websites</p>
           </div>
 
           <div className="py-2">
@@ -123,19 +121,19 @@ export const LiveSitesPopover: React.FC = () => {
               <button
                 key={index}
                 onClick={() => handleSiteClick(site.url)}
-                className="w-full px-4 py-3 text-left hover:bg-gray-50 focus:bg-gray-50 focus:outline-none transition-colors duration-150 group"
+                className="group w-full px-4 py-3 text-left transition-colors duration-150 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
                 role="menuitem"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h4 className="text-sm font-medium text-gray-900 group-hover:text-primary-green transition-colors">
+                    <div className="mb-1 flex items-center gap-2">
+                      <h4 className="font-medium text-gray-900 text-sm transition-colors group-hover:text-primary-green">
                         {site.title}
                       </h4>
-                      <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-primary-green transition-colors" />
+                      <ExternalLink className="h-3 w-3 text-gray-400 transition-colors group-hover:text-primary-green" />
                     </div>
-                    <p className="text-xs text-gray-500 mb-1">{site.description}</p>
-                    <p className="text-xs font-mono text-primary-green bg-primary-green/10 px-2 py-1 rounded inline-block">
+                    <p className="mb-1 text-gray-500 text-xs">{site.description}</p>
+                    <p className="inline-block rounded bg-primary-green/10 px-2 py-1 font-mono text-primary-green text-xs">
                       {site.url}
                     </p>
                   </div>
@@ -144,8 +142,8 @@ export const LiveSitesPopover: React.FC = () => {
             ))}
           </div>
 
-          <div className="px-4 py-2 border-t border-gray-100">
-            <p className="text-xs text-gray-400 text-center">Click any site to open in a new tab</p>
+          <div className="border-gray-100 border-t px-4 py-2">
+            <p className="text-center text-gray-400 text-xs">Click any site to open in a new tab</p>
           </div>
         </div>
       )}

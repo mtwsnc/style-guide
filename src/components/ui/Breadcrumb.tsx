@@ -22,30 +22,30 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, showBackButton = true })
   }
 
   return (
-    <div className="bg-gray-50 border-b border-gray-200">
+    <div className="border-gray-200 border-b bg-gray-50">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between min-h-[44px]">
+        <div className="flex min-h-[44px] items-center justify-between">
           {/* Breadcrumb Navigation */}
-          <nav className="flex items-center space-x-2 text-sm h-full">
+          <nav className="flex h-full items-center space-x-2 text-sm">
             <Link
               href="/"
-              className="flex items-center text-gray-600 hover:text-primary-green transition-colors h-full"
+              className="flex h-full items-center text-gray-600 transition-colors hover:text-primary-green"
             >
-              <Home className="w-4 h-4 mr-1" />
+              <Home className="mr-1 h-4 w-4" />
               <span className="leading-none">Home</span>
             </Link>
 
             {items.map((item, index) => (
-              <div key={index} className="flex items-center h-full">
-                <ChevronRight className="w-4 h-4 text-gray-400 mx-2" />
+              <div key={index} className="flex h-full items-center">
+                <ChevronRight className="mx-2 h-4 w-4 text-gray-400" />
                 {index === items.length - 1 ? (
-                  <span className="text-gray-900 font-medium leading-none flex items-center h-full">
+                  <span className="flex h-full items-center font-medium text-gray-900 leading-none">
                     {item.label}
                   </span>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-gray-600 hover:text-primary-green transition-colors leading-none flex items-center h-full"
+                    className="flex h-full items-center text-gray-600 leading-none transition-colors hover:text-primary-green"
                   >
                     {item.label}
                   </Link>
@@ -58,9 +58,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, showBackButton = true })
           {showBackButton && (
             <button
               onClick={handleBack}
-              className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-primary-green hover:bg-white rounded-md transition-colors border border-gray-200 hover:border-primary-green h-full"
+              className="flex h-full items-center rounded-md border border-gray-200 px-3 py-2 text-gray-600 text-sm transition-colors hover:border-primary-green hover:bg-white hover:text-primary-green"
             >
-              <ChevronLeft className="w-4 h-4 mr-1" />
+              <ChevronLeft className="mr-1 h-4 w-4" />
               Back
             </button>
           )}

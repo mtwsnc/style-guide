@@ -20,9 +20,9 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
   return (
-    <nav className="border-b bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="sticky top-0 z-50 border-b bg-white shadow-sm">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-3">
@@ -31,14 +31,14 @@ export function Navigation() {
                 alt="MTWS Logo"
                 width={32}
                 height={32}
-                className="w-8 h-8 rounded-lg"
+                className="h-8 w-8 rounded-lg"
               />
-              <span className="text-xl font-bold text-deep-forest-green">MTWS Design System</span>
+              <span className="font-bold text-deep-forest-green text-xl">MTWS Design System</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden items-center space-x-1 md:flex">
             {navigationItems.map((item) => {
               const IconComponent = item.icon
               return (
@@ -46,13 +46,13 @@ export function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                    "flex items-center space-x-2 rounded-lg px-4 py-2 font-medium text-sm transition-all duration-200",
                     pathname === item.href
                       ? "bg-primary-green text-white shadow-sm"
                       : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
                   )}
                 >
-                  <IconComponent className="w-4 h-4" />
+                  <IconComponent className="h-4 w-4" />
                   <span>{item.name}</span>
                 </Link>
               )
@@ -60,7 +60,7 @@ export function Navigation() {
           </div>
 
           {/* Right Side Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden items-center space-x-4 md:flex">
             <LiveSitesPopover />
           </div>
 
@@ -68,16 +68,16 @@ export function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+              className="rounded-lg p-2 text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-900"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
+          <div className="border-gray-200 border-t py-4 md:hidden">
             <div className="space-y-2">
               {navigationItems.map((item) => {
                 const IconComponent = item.icon
@@ -87,18 +87,18 @@ export function Navigation() {
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200",
+                      "flex items-center space-x-3 rounded-lg px-4 py-3 font-medium text-sm transition-all duration-200",
                       pathname === item.href
                         ? "bg-primary-green text-white"
                         : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
                     )}
                   >
-                    <IconComponent className="w-4 h-4" />
+                    <IconComponent className="h-4 w-4" />
                     <span>{item.name}</span>
                   </Link>
                 )
               })}
-              <div className="pt-4 mt-4 border-t border-gray-200 px-4">
+              <div className="mt-4 border-gray-200 border-t px-4 pt-4">
                 <LiveSitesPopover />
               </div>
             </div>

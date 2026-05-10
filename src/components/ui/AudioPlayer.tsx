@@ -30,7 +30,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 
   // Format time in MM:SS format
   const formatTime = (time: number) => {
-    if (isNaN(time)) return "0:00"
+    if (Number.isNaN(time)) return "0:00"
     const minutes = Math.floor(time / 60)
     const seconds = Math.floor(time % 60)
     return `${minutes}:${seconds.toString().padStart(2, "0")}`
@@ -80,7 +80,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 
     const updateTime = () => setCurrentTime(audio.currentTime)
     const updateDuration = () => {
-      if (audio.duration && !isNaN(audio.duration)) {
+      if (audio.duration && !Number.isNaN(audio.duration)) {
         setDuration(audio.duration)
       }
     }
@@ -93,7 +93,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
     }
     const handleLoadedMetadata = () => {
       // Metadata (including duration) has been loaded
-      if (audio.duration && !isNaN(audio.duration)) {
+      if (audio.duration && !Number.isNaN(audio.duration)) {
         setDuration(audio.duration)
       }
       setIsLoading(false)
@@ -133,7 +133,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       audio.removeEventListener("ended", handleEnded)
       audio.removeEventListener("error", handleError)
     }
-  }, [src])
+  }, [])
 
   const togglePlayPause = async () => {
     if (!audioRef.current) return
@@ -196,7 +196,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   const progressPercentage = duration ? (currentTime / duration) * 100 : 0
 
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 max-w-md mx-auto">
+    <div className="mx-auto max-w-md rounded-xl border border-gray-100 bg-white p-6 shadow-lg">
       {/* Audio element with progressive streaming */}
       <audio
         ref={audioRef}
@@ -204,24 +204,24 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         preload="metadata"
         crossOrigin="anonymous"
         onLoadedMetadata={() => {
-          if (audioRef.current?.duration && !isNaN(audioRef.current.duration)) {
+          if (audioRef.current?.duration && !Number.isNaN(audioRef.current.duration)) {
             setDuration(audioRef.current.duration)
           }
         }}
       />
 
       {/* Cover Art and Title */}
-      <div className="text-center mb-6">
-        <div className="w-24 h-24 mx-auto mb-4 rounded-lg overflow-hidden shadow-md">
+      <div className="mb-6 text-center">
+        <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-lg shadow-md">
           <Image
             src={cover}
             alt={title}
             width={96}
             height={96}
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
-        <h3 className="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">{title}</h3>
+        <h3 className="mb-1 line-clamp-2 font-semibold text-gray-900 text-sm">{title}</h3>
         <p className="text-gray-600 text-xs">{artist}</p>
       </div>
 
@@ -229,57 +229,57 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       <div className="mb-4">
         <div
           ref={progressRef}
-          className="relative h-2 bg-gray-200 rounded-full cursor-pointer group"
+          className="group relative h-2 cursor-pointer rounded-full bg-gray-200"
           onClick={handleProgressClick}
         >
           <div
-            className="absolute top-0 left-0 h-full bg-primary-green rounded-full transition-all duration-100 ease-out"
+            className="absolute top-0 left-0 h-full rounded-full bg-primary-green transition-all duration-100 ease-out"
             style={{ width: `${progressPercentage}%` }}
           />
           <div
-            className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-primary-green rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+            className="absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-primary-green opacity-0 shadow-md transition-opacity duration-200 group-hover:opacity-100"
             style={{ left: `calc(${progressPercentage}% - 8px)` }}
           />
         </div>
-        <div className="flex justify-between text-xs text-gray-500 mt-2">
+        <div className="mt-2 flex justify-between text-gray-500 text-xs">
           <span>{formatTime(currentTime)}</span>
           <span>{formatTime(duration)}</span>
         </div>
       </div>
 
       {/* Controls */}
-      <div className="flex items-center justify-center gap-4 mb-4">
+      <div className="mb-4 flex items-center justify-center gap-4">
         <button
           onClick={() => skip(-10)}
-          className="p-2 sm:p-2 rounded-full hover:bg-gray-100 transition-colors touch-manipulation"
+          className="touch-manipulation rounded-full p-2 transition-colors hover:bg-gray-100 sm:p-2"
           disabled={isLoading}
           aria-label="Skip back 10 seconds"
         >
-          <SkipBack className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+          <SkipBack className="h-4 w-4 text-gray-600 sm:h-5 sm:w-5" />
         </button>
 
         <button
           onClick={togglePlayPause}
           disabled={isLoading}
-          className="p-3 sm:p-3 rounded-full bg-primary-green hover:bg-primary-green/90 transition-colors disabled:opacity-50 shadow-md touch-manipulation"
+          className="touch-manipulation rounded-full bg-primary-green p-3 shadow-md transition-colors hover:bg-primary-green/90 disabled:opacity-50 sm:p-3"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {isLoading ? (
-            <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent sm:h-6 sm:w-6" />
           ) : isPlaying ? (
-            <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            <Pause className="h-5 w-5 text-white sm:h-6 sm:w-6" />
           ) : (
-            <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white ml-0.5" />
+            <Play className="ml-0.5 h-5 w-5 text-white sm:h-6 sm:w-6" />
           )}
         </button>
 
         <button
           onClick={() => skip(10)}
-          className="p-2 sm:p-2 rounded-full hover:bg-gray-100 transition-colors touch-manipulation"
+          className="touch-manipulation rounded-full p-2 transition-colors hover:bg-gray-100 sm:p-2"
           disabled={isLoading}
           aria-label="Skip forward 10 seconds"
         >
-          <SkipForward className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+          <SkipForward className="h-4 w-4 text-gray-600 sm:h-5 sm:w-5" />
         </button>
       </div>
 
@@ -287,13 +287,13 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       <div className="flex items-center gap-2 sm:gap-3">
         <button
           onClick={toggleMute}
-          className="p-1 sm:p-1 rounded hover:bg-gray-100 transition-colors touch-manipulation"
+          className="touch-manipulation rounded p-1 transition-colors hover:bg-gray-100 sm:p-1"
           aria-label={isMuted ? "Unmute" : "Mute"}
         >
           {isMuted || volume === 0 ? (
-            <VolumeX className="w-4 h-4 text-gray-600" />
+            <VolumeX className="h-4 w-4 text-gray-600" />
           ) : (
-            <Volume2 className="w-4 h-4 text-gray-600" />
+            <Volume2 className="h-4 w-4 text-gray-600" />
           )}
         </button>
         <input
@@ -303,7 +303,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
           step="0.1"
           value={isMuted ? 0 : volume}
           onChange={handleVolumeChange}
-          className="flex-1 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer volume-slider"
+          className="volume-slider h-1 flex-1 cursor-pointer appearance-none rounded-lg bg-gray-200"
           aria-label="Volume control"
           style={{
             background: `linear-gradient(to right, #407550 0%, #407550 ${(isMuted ? 0 : volume) * 100}%, #e5e7eb ${(isMuted ? 0 : volume) * 100}%, #e5e7eb 100%)`,

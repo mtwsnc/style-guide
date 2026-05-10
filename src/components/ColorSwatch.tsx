@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import { useState } from "react"
 
 interface ColorSwatchProps {
   name: string
@@ -24,31 +24,31 @@ export function ColorSwatch({ name, token, value, description, usage }: ColorSwa
   }
 
   return (
-    <div className="bg-white rounded-lg border shadow-sm overflow-hidden">
+    <div className="overflow-hidden rounded-lg border bg-white shadow-sm">
       <div
-        className="h-24 cursor-pointer flex items-center justify-center relative group"
+        className="group relative flex h-24 cursor-pointer items-center justify-center"
         style={{ backgroundColor: value }}
         onClick={copyToClipboard}
       >
-        <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-50 text-white px-2 py-1 rounded text-sm">
+        <div className="rounded bg-black bg-opacity-50 px-2 py-1 text-sm text-white opacity-0 transition-opacity group-hover:opacity-100">
           {copied ? "Copied!" : "Click to copy"}
         </div>
       </div>
       <div className="p-4">
-        <div className="flex justify-between items-start mb-2">
+        <div className="mb-2 flex items-start justify-between">
           <h3 className="font-semibold text-gray-900">{name}</h3>
           <code
-            className="text-xs bg-gray-100 px-2 py-1 rounded cursor-pointer hover:bg-gray-200 transition-colors"
+            className="cursor-pointer rounded bg-gray-100 px-2 py-1 text-xs transition-colors hover:bg-gray-200"
             onClick={copyToClipboard}
           >
             {value}
           </code>
         </div>
-        {token && <code className="text-xs text-olive-green font-mono mb-2 block">{token}</code>}
-        <p className="text-sm text-gray-600 mb-3">{description}</p>
+        {token && <code className="mb-2 block font-mono text-olive-green text-xs">{token}</code>}
+        <p className="mb-3 text-gray-600 text-sm">{description}</p>
         <div>
-          <h4 className="text-xs font-medium text-gray-900 mb-1">Usage:</h4>
-          <ul className="text-xs text-gray-600">
+          <h4 className="mb-1 font-medium text-gray-900 text-xs">Usage:</h4>
+          <ul className="text-gray-600 text-xs">
             {usage.map((use, index) => (
               <li key={index}>• {use}</li>
             ))}

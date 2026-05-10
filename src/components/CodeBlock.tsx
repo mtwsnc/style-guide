@@ -1,7 +1,7 @@
 "use client"
 
 import { Check, Copy } from "lucide-react"
-import React, { useState } from "react"
+import { useState } from "react"
 import { Button } from "./ui/Button"
 
 interface CodeBlockProps {
@@ -24,9 +24,9 @@ export function CodeBlock({ code, language = "tsx", title }: CodeBlockProps) {
   }
 
   return (
-    <div className="relative bg-gray-900 rounded-lg overflow-hidden">
+    <div className="relative overflow-hidden rounded-lg bg-gray-900">
       {title && (
-        <div className="bg-gray-800 px-4 py-2 text-sm text-gray-300 font-medium">{title}</div>
+        <div className="bg-gray-800 px-4 py-2 font-medium text-gray-300 text-sm">{title}</div>
       )}
       <div className="p-4">
         <div className="absolute top-2 right-2">
@@ -34,12 +34,12 @@ export function CodeBlock({ code, language = "tsx", title }: CodeBlockProps) {
             variant="ghost"
             size="sm"
             onClick={copyToClipboard}
-            className="text-gray-400 hover:text-white hover:bg-gray-700"
+            className="text-gray-400 hover:bg-gray-700 hover:text-white"
           >
             {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
           </Button>
         </div>
-        <pre className="text-sm text-gray-300 overflow-x-auto">
+        <pre className="overflow-x-auto text-gray-300 text-sm">
           <code className={`language-${language}`}>{code}</code>
         </pre>
       </div>

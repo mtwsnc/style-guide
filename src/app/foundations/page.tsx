@@ -168,10 +168,10 @@ export default function FoundationsPage() {
     <div className="min-h-screen bg-warm-background">
       <Navigation />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-deep-forest-green mb-4">Foundations</h1>
-          <p className="text-lg text-gray-700">
+          <h1 className="mb-4 font-bold text-4xl text-deep-forest-green">Foundations</h1>
+          <p className="text-gray-700 text-lg">
             The atomic elements of our design system. These foundational elements ensure consistency
             and accessibility across all digital experiences.
           </p>
@@ -181,7 +181,7 @@ export default function FoundationsPage() {
           title="Color Palette"
           description="Our carefully selected colors represent the values and identity of MTWS. Each color has specific usage guidelines to maintain consistency and accessibility."
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {brandColors.map((color, index) => (
               <ColorSwatch
                 key={index}
@@ -195,27 +195,27 @@ export default function FoundationsPage() {
           </div>
 
           {/* Accessibility Examples */}
-          <div className="mt-8 bg-white rounded-lg border shadow-sm p-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+          <div className="mt-8 rounded-lg border bg-white p-6 shadow-sm">
+            <h3 className="mb-4 font-semibold text-gray-900 text-xl">
               Accessible Color Combinations
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div className="space-y-4">
-                <div className="bg-warm-background text-high-contrast-black p-4 rounded border">
+                <div className="rounded border bg-warm-background p-4 text-high-contrast-black">
                   <p className="font-medium">High Contrast Black on Warm Background</p>
                   <p className="text-sm">Perfect contrast ratio for body text</p>
                 </div>
-                <div className="bg-primary-green text-white p-4 rounded">
+                <div className="rounded bg-primary-green p-4 text-white">
                   <p className="font-medium">White on Primary Green</p>
                   <p className="text-sm">Ideal for call-to-action buttons</p>
                 </div>
               </div>
               <div className="space-y-4">
-                <div className="bg-sandy-gold text-deep-forest-green p-4 rounded">
+                <div className="rounded bg-sandy-gold p-4 text-deep-forest-green">
                   <p className="font-medium">Deep Forest Green on Sandy Gold</p>
                   <p className="text-sm">Great for highlighted content</p>
                 </div>
-                <div className="bg-white text-olive-green p-4 rounded border">
+                <div className="rounded border bg-white p-4 text-olive-green">
                   <p className="font-medium">Olive Green on White</p>
                   <p className="text-sm">Perfect for secondary elements</p>
                 </div>
@@ -235,31 +235,31 @@ export default function FoundationsPage() {
           </div>
 
           {/* Font Information */}
-          <div className="mt-8 bg-white rounded-lg border shadow-sm p-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Font Details</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-8 rounded-lg border bg-white p-6 shadow-sm">
+            <h3 className="mb-4 font-semibold text-gray-900 text-xl">Font Details</h3>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">DM Sans</h4>
-                <p className="text-sm text-gray-600 mb-2">Primary font for all English content</p>
-                <div className="text-xs text-gray-500">
+                <h4 className="mb-2 font-semibold text-gray-900">DM Sans</h4>
+                <p className="mb-2 text-gray-600 text-sm">Primary font for all English content</p>
+                <div className="text-gray-500 text-xs">
                   <p>• Weights: 100-1000</p>
                   <p>• Google Fonts</p>
                   <p>• Excellent readability</p>
                 </div>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">UthmanicHafs</h4>
-                <p className="text-sm text-gray-600 mb-2">For Quranic text and formal Arabic</p>
-                <div className="text-xs text-gray-500">
+                <h4 className="mb-2 font-semibold text-gray-900">UthmanicHafs</h4>
+                <p className="mb-2 text-gray-600 text-sm">For Quranic text and formal Arabic</p>
+                <div className="text-gray-500 text-xs">
                   <p>• Traditional Arabic script</p>
                   <p>• Optimized for Quranic text</p>
                   <p>• Class: .font-uthmanic</p>
                 </div>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-900 mb-2">29LTRiwaya</h4>
-                <p className="text-sm text-gray-600 mb-2">For general Arabic content</p>
-                <div className="text-xs text-gray-500">
+                <h4 className="mb-2 font-semibold text-gray-900">29LTRiwaya</h4>
+                <p className="mb-2 text-gray-600 text-sm">For general Arabic content</p>
+                <div className="text-gray-500 text-xs">
                   <p>• Modern Arabic design</p>
                   <p>• Great for headings</p>
                   <p>• Class: .font-riwaya</p>
@@ -276,21 +276,21 @@ export default function FoundationsPage() {
           <SpacingScale values={spacingValues} />
 
           {/* Spacing Examples */}
-          <div className="mt-8 bg-white rounded-lg border shadow-sm p-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Spacing in Practice</h3>
+          <div className="mt-8 rounded-lg border bg-white p-6 shadow-sm">
+            <h3 className="mb-4 font-semibold text-gray-900 text-xl">Spacing in Practice</h3>
             <div className="space-y-6">
-              <div className="border border-gray-200 rounded-lg p-6">
-                <h4 className="text-lg font-semibold mb-4">Card Example</h4>
-                <div className="bg-gray-50 rounded border-2 border-dashed border-gray-300 p-6">
-                  <div className="bg-white p-4 rounded shadow-sm">
-                    <h5 className="font-semibold mb-2">Card Title</h5>
-                    <p className="text-gray-600 text-sm mb-4">Card content with proper spacing</p>
-                    <button className="bg-primary-green text-white px-4 py-2 rounded">
+              <div className="rounded-lg border border-gray-200 p-6">
+                <h4 className="mb-4 font-semibold text-lg">Card Example</h4>
+                <div className="rounded border-2 border-gray-300 border-dashed bg-gray-50 p-6">
+                  <div className="rounded bg-white p-4 shadow-sm">
+                    <h5 className="mb-2 font-semibold">Card Title</h5>
+                    <p className="mb-4 text-gray-600 text-sm">Card content with proper spacing</p>
+                    <button className="rounded bg-primary-green px-4 py-2 text-white">
                       Action Button
                     </button>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="mt-2 text-gray-600 text-sm">
                   • Card padding: 24px (lg) • Content spacing: 16px (md) • Button padding: 8px 16px
                 </p>
               </div>
@@ -302,22 +302,22 @@ export default function FoundationsPage() {
           title="Corner Radii"
           description="A consistent radius scale prevents mixing sharp and rounded corners within the same view. Use Tailwind class names (rounded-sm, rounded-md, rounded-lg, rounded-xl, rounded-full) or the CSS tokens directly."
         >
-          <div className="bg-white rounded-lg border shadow-sm p-6">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
               {radiusValues.map((r) => (
                 <div key={r.name} className="flex flex-col items-center gap-3">
                   <div
-                    className="w-16 h-16 bg-sandy-gold border-2 border-primary-green"
+                    className="h-16 w-16 border-2 border-primary-green bg-sandy-gold"
                     style={{ borderRadius: r.value }}
                   />
                   <div className="text-center">
-                    <code className="text-xs bg-gray-100 px-2 py-1 rounded block mb-1">
+                    <code className="mb-1 block rounded bg-gray-100 px-2 py-1 text-xs">
                       rounded-{r.name}
                     </code>
-                    <span className="text-xs text-gray-500 block">{r.value}</span>
-                    <code className="text-xs text-olive-green font-mono block mt-1">{r.token}</code>
+                    <span className="block text-gray-500 text-xs">{r.value}</span>
+                    <code className="mt-1 block font-mono text-olive-green text-xs">{r.token}</code>
                   </div>
-                  <p className="text-xs text-gray-500 text-center">{r.usage}</p>
+                  <p className="text-center text-gray-500 text-xs">{r.usage}</p>
                 </div>
               ))}
             </div>
@@ -328,13 +328,13 @@ export default function FoundationsPage() {
           title="Iconography"
           description="We use Lucide React icons for their consistency, clarity, and comprehensive coverage of common UI needs."
         >
-          <div className="bg-white rounded-lg border shadow-sm p-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="rounded-lg border bg-white p-6 shadow-sm">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
               {/* Sample icons would go here - you can expand this */}
               <div className="text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
                   <svg
-                    className="w-6 h-6 text-gray-600"
+                    className="h-6 w-6 text-gray-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -353,12 +353,12 @@ export default function FoundationsPage() {
                     />
                   </svg>
                 </div>
-                <p className="text-xs text-gray-600">Mail</p>
+                <p className="text-gray-600 text-xs">Mail</p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
                   <svg
-                    className="w-6 h-6 text-gray-600"
+                    className="h-6 w-6 text-gray-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -371,12 +371,12 @@ export default function FoundationsPage() {
                     />
                   </svg>
                 </div>
-                <p className="text-xs text-gray-600">Phone</p>
+                <p className="text-gray-600 text-xs">Phone</p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
                   <svg
-                    className="w-6 h-6 text-gray-600"
+                    className="h-6 w-6 text-gray-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -395,12 +395,12 @@ export default function FoundationsPage() {
                     />
                   </svg>
                 </div>
-                <p className="text-xs text-gray-600">Location</p>
+                <p className="text-gray-600 text-xs">Location</p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
                   <svg
-                    className="w-6 h-6 text-gray-600"
+                    className="h-6 w-6 text-gray-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -413,12 +413,12 @@ export default function FoundationsPage() {
                     />
                   </svg>
                 </div>
-                <p className="text-xs text-gray-600">Clock</p>
+                <p className="text-gray-600 text-xs">Clock</p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
                   <svg
-                    className="w-6 h-6 text-gray-600"
+                    className="h-6 w-6 text-gray-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -431,12 +431,12 @@ export default function FoundationsPage() {
                     />
                   </svg>
                 </div>
-                <p className="text-xs text-gray-600">Share</p>
+                <p className="text-gray-600 text-xs">Share</p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
+                <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-100">
                   <svg
-                    className="w-6 h-6 text-gray-600"
+                    className="h-6 w-6 text-gray-600"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -449,13 +449,13 @@ export default function FoundationsPage() {
                     />
                   </svg>
                 </div>
-                <p className="text-xs text-gray-600">Check</p>
+                <p className="text-gray-600 text-xs">Check</p>
               </div>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <h4 className="font-semibold text-gray-900 mb-2">Icon Guidelines</h4>
-              <ul className="text-sm text-gray-600 space-y-1">
+            <div className="mt-6 border-gray-200 border-t pt-6">
+              <h4 className="mb-2 font-semibold text-gray-900">Icon Guidelines</h4>
+              <ul className="space-y-1 text-gray-600 text-sm">
                 <li>• Standard size: 16px (1rem) or 24px (1.5rem)</li>
                 <li>• Stroke width: 2px for consistency</li>
                 <li>• Use semantic colors (primary-green for actions, gray for neutral)</li>

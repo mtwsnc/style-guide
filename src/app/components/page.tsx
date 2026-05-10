@@ -6,7 +6,6 @@ import {
   Component,
   Hash,
   Layout,
-  Link,
   Navigation as NavIcon,
   Play,
   Tag,
@@ -16,7 +15,6 @@ import { Navigation } from "@/components/Navigation"
 import { Section } from "@/components/Section"
 import AudioPlayer from "@/components/ui/AudioPlayer"
 import { Badge } from "@/components/ui/Badge"
-import Breadcrumb from "@/components/ui/Breadcrumb"
 import { Button } from "@/components/ui/Button"
 import {
   Card,
@@ -26,7 +24,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card"
-import { Input } from "@/components/ui/Input"
 import { QuranVerseBlock } from "@/components/ui/QuranVerseBlock"
 
 export default function ComponentsPage() {
@@ -66,37 +63,37 @@ export default function ComponentsPage() {
     <div className="min-h-screen bg-warm-background">
       <Navigation />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-deep-forest-green mb-4">Components</h1>
-          <p className="text-lg text-gray-700 mb-8">
+          <h1 className="mb-4 font-bold text-4xl text-deep-forest-green">Components</h1>
+          <p className="mb-8 text-gray-700 text-lg">
             Live, interactive inventory of every UI component. Each component is rendered with the
             exact same code used on our main website, ensuring perfect consistency.
           </p>
 
           {/* Table of Contents */}
-          <div className="bg-white rounded-lg border shadow-sm p-6 mb-12">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <Hash className="w-5 h-5" />
+          <div className="mb-12 rounded-lg border bg-white p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 font-semibold text-gray-900 text-xl">
+              <Hash className="h-5 w-5" />
               Component Index
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {componentSections.map((section) => {
                 const IconComponent = section.icon
                 return (
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                    className="group flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-gray-50"
                   >
-                    <div className="w-8 h-8 bg-sandy-gold rounded-lg flex items-center justify-center group-hover:bg-primary-green group-hover:text-white transition-colors">
-                      <IconComponent className="w-4 h-4" />
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sandy-gold transition-colors group-hover:bg-primary-green group-hover:text-white">
+                      <IconComponent className="h-4 w-4" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-gray-900 group-hover:text-primary-green transition-colors">
+                      <h3 className="font-medium text-gray-900 transition-colors group-hover:text-primary-green">
                         {section.title}
                       </h3>
-                      <p className="text-sm text-gray-600">{section.description}</p>
+                      <p className="text-gray-600 text-sm">{section.description}</p>
                     </div>
                   </a>
                 )
@@ -182,7 +179,7 @@ export default function ComponentsPage() {
               <Button>Default</Button>
               <Button size="lg">Large</Button>
               <Button size="icon">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -213,7 +210,7 @@ export default function ComponentsPage() {
               <Button>Normal</Button>
               <Button disabled>Disabled</Button>
               <Button disabled className="opacity-70">
-                <svg className="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
+                <svg className="mr-2 -ml-1 h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
                   <circle
                     className="opacity-25"
                     cx="12"
@@ -274,7 +271,7 @@ export default function ComponentsPage() {
                 <Badge variant="gold">Upcoming</Badge>
                 <div>
                   <h3 className="font-semibold text-gray-900">Understanding Tawheed</h3>
-                  <p className="text-sm text-gray-600">Shaykh Rasheed Barbee · Dec 15</p>
+                  <p className="text-gray-600 text-sm">Shaykh Rasheed Barbee · Dec 15</p>
                 </div>
               </div>
             </ComponentShowcase>
@@ -349,7 +346,7 @@ import { Button } from '@/components/ui/Button';
                   <CardDescription>Shaykh Rasheed Barbee</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2 text-sm text-gray-600">
+                  <div className="space-y-2 text-gray-600 text-sm">
                     <div>📅 December 15, 2024</div>
                     <div>🕐 7:00 PM - 9:00 PM</div>
                     <div>📍 MTWS 3714 S. Alston Ave. Durham NC 27713</div>
@@ -428,15 +425,15 @@ import { Button } from '@/components/ui/Button';
   />
 </div>`}
           >
-            <div className="space-y-2 w-full max-w-sm">
-              <label htmlFor="email" className="text-sm font-medium">
+            <div className="w-full max-w-sm space-y-2">
+              <label htmlFor="email" className="font-medium text-sm">
                 Email Address
               </label>
               <input
                 id="email"
                 type="email"
                 placeholder="your.email@example.com"
-                className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-xs transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-xs transition-colors file:border-0 file:bg-transparent file:font-medium file:text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
               />
             </div>
           </ComponentShowcase>
@@ -467,16 +464,16 @@ import { Button } from '@/components/ui/Button';
   <Button type="submit">Send Message</Button>
 </form>`}
           >
-            <form className="space-y-4 w-full max-w-md">
+            <form className="w-full max-w-md space-y-4">
               <div>
-                <label className="text-sm font-medium block mb-1">Name</label>
+                <label className="mb-1 block font-medium text-sm">Name</label>
                 <input
                   placeholder="Your full name"
                   className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-xs transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 />
               </div>
               <div>
-                <label className="text-sm font-medium block mb-1">Email</label>
+                <label className="mb-1 block font-medium text-sm">Email</label>
                 <input
                   type="email"
                   placeholder="your.email@example.com"
@@ -484,9 +481,9 @@ import { Button } from '@/components/ui/Button';
                 />
               </div>
               <div>
-                <label className="text-sm font-medium block mb-1">Message</label>
+                <label className="mb-1 block font-medium text-sm">Message</label>
                 <textarea
-                  className="w-full p-3 border border-input rounded-md text-sm resize-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="w-full resize-none rounded-md border border-input p-3 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                   rows={4}
                   placeholder="Your message..."
                 />
@@ -541,7 +538,7 @@ import { Button } from '@/components/ui/Button';
                   </a>
                 </li>
                 <li className="text-gray-400">/</li>
-                <li className="text-gray-900 font-medium">Understanding Tawheed</li>
+                <li className="font-medium text-gray-900">Understanding Tawheed</li>
               </ol>
             </nav>
           </ComponentShowcase>
@@ -579,22 +576,22 @@ const navItems = [
             <nav className="flex space-x-8">
               <a
                 href="#"
-                className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors"
+                className="font-medium text-gray-700 text-sm transition-colors hover:text-primary-green"
               >
                 About
               </a>
-              <a href="#" className="text-sm font-medium text-primary-green">
+              <a href="#" className="font-medium text-primary-green text-sm">
                 Seminars
               </a>
               <a
                 href="#"
-                className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors"
+                className="font-medium text-gray-700 text-sm transition-colors hover:text-primary-green"
               >
                 Contact
               </a>
               <a
                 href="#"
-                className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors"
+                className="font-medium text-gray-700 text-sm transition-colors hover:text-primary-green"
               >
                 Donate
               </a>
@@ -626,16 +623,16 @@ const navItems = [
   Live
 </span>`}
           >
-            <span className="bg-primary-green text-white text-xs px-2 py-1 rounded-full">
+            <span className="rounded-full bg-primary-green px-2 py-1 text-white text-xs">
               Upcoming
             </span>
-            <span className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">
+            <span className="rounded-full bg-gray-100 px-2 py-1 text-gray-800 text-xs">
               Completed
             </span>
-            <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
+            <span className="rounded-full bg-red-100 px-2 py-1 text-red-800 text-xs">
               Cancelled
             </span>
-            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Live</span>
+            <span className="rounded-full bg-blue-100 px-2 py-1 text-blue-800 text-xs">Live</span>
           </ComponentShowcase>
 
           <ComponentShowcase
@@ -665,8 +662,8 @@ const navItems = [
   </div>
 </div>`}
           >
-            <div className="space-y-4 w-full max-w-md">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="w-full max-w-md space-y-4">
+              <div className="rounded-lg border border-green-200 bg-green-50 p-4">
                 <div className="flex">
                   <svg
                     className="h-5 w-5 text-green-400"
@@ -682,14 +679,14 @@ const navItems = [
                     />
                   </svg>
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-green-800">
+                    <p className="font-medium text-green-800 text-sm">
                       Success! Your message has been sent.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+              <div className="rounded-lg border border-red-200 bg-red-50 p-4">
                 <div className="flex">
                   <svg
                     className="h-5 w-5 text-red-400"
@@ -705,7 +702,7 @@ const navItems = [
                     />
                   </svg>
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-red-800">
+                    <p className="font-medium text-red-800 text-sm">
                       Error: Please check your input and try again.
                     </p>
                   </div>
@@ -732,8 +729,8 @@ const navItems = [
 </div>`}
           >
             <div className="w-full">
-              <h1 className="text-4xl font-bold text-deep-forest-green mb-4">Page Title</h1>
-              <p className="text-lg text-gray-700">
+              <h1 className="mb-4 font-bold text-4xl text-deep-forest-green">Page Title</h1>
+              <p className="text-gray-700 text-lg">
                 Page description or subtitle that provides context about the content.
               </p>
             </div>
@@ -759,13 +756,13 @@ const navItems = [
           >
             <section className="w-full">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Section Title</h2>
-                <p className="text-lg text-gray-600">
+                <h2 className="mb-2 font-bold text-3xl text-gray-900">Section Title</h2>
+                <p className="text-gray-600 text-lg">
                   Section description explaining the content below.
                 </p>
               </div>
 
-              <div className="border-t border-gray-200 pt-8">
+              <div className="border-gray-200 border-t pt-8">
                 <p className="text-gray-600">Section content goes here...</p>
               </div>
             </section>

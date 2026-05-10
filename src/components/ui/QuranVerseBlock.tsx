@@ -1,4 +1,3 @@
-import * as React from "react"
 import { cn } from "@/lib/utils"
 
 interface QuranVerseBlockProps {
@@ -22,7 +21,7 @@ function QuranVerseBlock({
   return (
     <div
       className={cn(
-        "border-l-4 px-6 py-4 bg-white rounded-r-lg",
+        "rounded-r-lg border-l-4 bg-white px-6 py-4",
         isGreen ? "border-primary-green" : "border-sandy-gold",
         className,
       )}
@@ -31,16 +30,16 @@ function QuranVerseBlock({
         dir="rtl"
         lang="ar"
         className={cn(
-          "text-right text-deep-forest-green mb-2 leading-[1.8]",
+          "mb-2 text-right text-deep-forest-green leading-[1.8]",
           isGreen ? "font-riwaya text-[1.25rem]" : "font-uthmanic text-[1.75rem]",
         )}
       >
         {arabic}
       </p>
-      <p className="italic text-gray-600 text-sm leading-relaxed mb-1">
+      <p className="mb-1 text-gray-600 text-sm italic leading-relaxed">
         &ldquo;{translation}&rdquo;
       </p>
-      <p className="text-xs text-olive-green font-medium">{source}</p>
+      <p className="font-medium text-olive-green text-xs">{source}</p>
     </div>
   )
 }
