@@ -18,7 +18,10 @@ export function SpacingScale({ values }: SpacingScaleProps) {
         {values.map((spacing, index) => {
           const px = spacing.pixels ?? spacing.value
           return (
-            <div key={index} className="flex items-center gap-6 p-4 border border-gray-100 rounded-lg">
+            <div
+              key={index}
+              className="flex items-center gap-6 p-4 border border-gray-100 rounded-lg"
+            >
               <div className="flex items-center gap-2 w-28 flex-shrink-0">
                 <div
                   className="bg-primary-green"

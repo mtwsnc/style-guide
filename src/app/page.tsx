@@ -1,21 +1,19 @@
-import { Navigation } from '@/components/Navigation';
-import { Palette, Component, BookOpen } from 'lucide-react';
+import { BookOpen, Component, Palette } from "lucide-react"
+import { Navigation } from "@/components/Navigation"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-warm-background">
       <Navigation />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-deep-forest-green mb-6">
-            MTWS Design System
-          </h1>
+          <h1 className="text-5xl font-bold text-deep-forest-green mb-6">MTWS Design System</h1>
           <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-            A living, interactive style guide and design system for Masjid Tawheed Was-Sunnah. 
-            This is not a static document—it's a dynamic, always-up-to-date representation 
-            of our brand's digital identity.
+            A living, interactive style guide and design system for Masjid Tawheed Was-Sunnah. This
+            is not a static document—it's a dynamic, always-up-to-date representation of our brand's
+            digital identity.
           </p>
           <div className="flex justify-center gap-4">
             <a
@@ -38,13 +36,13 @@ export default function HomePage() {
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h2>
             <p className="text-gray-700 mb-4">
-              This style guide transforms our brand from a passive blueprint into an active, 
-              indispensable tool for our entire team. Built using the same code components 
-              as our live website, it can never be out of date.
+              This style guide transforms our brand from a passive blueprint into an active,
+              indispensable tool for our entire team. Built using the same code components as our
+              live website, it can never be out of date.
             </p>
             <p className="text-gray-700">
-              It creates a "single source of truth" that is dynamic, interactive, and 
-              always perfectly in sync with our live website.
+              It creates a "single source of truth" that is dynamic, interactive, and always
+              perfectly in sync with our live website.
             </p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-sm border">
@@ -52,15 +50,24 @@ export default function HomePage() {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="text-primary-green mr-2">•</span>
-                <span><strong>Absolute Consistency:</strong> Undeniable source of truth with no room for interpretation</span>
+                <span>
+                  <strong>Absolute Consistency:</strong> Undeniable source of truth with no room for
+                  interpretation
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-primary-green mr-2">•</span>
-                <span><strong>Enhanced Efficiency:</strong> Pre-built, pre-approved components accelerate development</span>
+                <span>
+                  <strong>Enhanced Efficiency:</strong> Pre-built, pre-approved components
+                  accelerate development
+                </span>
               </li>
               <li className="flex items-start">
                 <span className="text-primary-green mr-2">•</span>
-                <span><strong>Better Collaboration:</strong> Shared universal language for designers and developers</span>
+                <span>
+                  <strong>Better Collaboration:</strong> Shared universal language for designers and
+                  developers
+                </span>
               </li>
             </ul>
           </div>
@@ -110,9 +117,11 @@ export default function HomePage() {
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-gray-200 text-center text-gray-600">
-          <p>Built with the same components as our live website • Always in sync • Never outdated</p>
+          <p>
+            Built with the same components as our live website • Always in sync • Never outdated
+          </p>
         </div>
       </div>
     </div>
-  );
+  )
 }

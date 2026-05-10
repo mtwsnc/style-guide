@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react"
 
 interface TypographyScaleProps {
-  title: string;
+  title: string
   samples: {
-    element: string;
-    className: string;
-    fontSize: string;
-    lineHeight: string;
-    fontWeight: string;
-    text: string;
-  }[];
+    element: string
+    className: string
+    fontSize: string
+    lineHeight: string
+    fontWeight: string
+    text: string
+  }[]
 }
 
 export function TypographyScale({ title, samples }: TypographyScaleProps) {
@@ -22,26 +22,37 @@ export function TypographyScale({ title, samples }: TypographyScaleProps) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
               {/* Typography Sample */}
               <div className="lg:col-span-2">
-                <div 
+                <div
                   className={sample.className}
-                  style={{ 
+                  style={{
                     fontSize: sample.fontSize,
                     lineHeight: sample.lineHeight,
-                    fontWeight: sample.fontWeight 
+                    fontWeight: sample.fontWeight,
                   }}
                 >
                   {sample.text}
                 </div>
               </div>
-              
+
               {/* Typography Details */}
               <div className="lg:col-span-1">
                 <div className="text-sm text-gray-600 space-y-1">
-                  <div><strong>Element:</strong> {sample.element}</div>
-                  <div><strong>Class:</strong> <code className="bg-gray-100 px-1 rounded">{sample.className}</code></div>
-                  <div><strong>Size:</strong> {sample.fontSize}</div>
-                  <div><strong>Line Height:</strong> {sample.lineHeight}</div>
-                  <div><strong>Weight:</strong> {sample.fontWeight}</div>
+                  <div>
+                    <strong>Element:</strong> {sample.element}
+                  </div>
+                  <div>
+                    <strong>Class:</strong>{" "}
+                    <code className="bg-gray-100 px-1 rounded">{sample.className}</code>
+                  </div>
+                  <div>
+                    <strong>Size:</strong> {sample.fontSize}
+                  </div>
+                  <div>
+                    <strong>Line Height:</strong> {sample.lineHeight}
+                  </div>
+                  <div>
+                    <strong>Weight:</strong> {sample.fontWeight}
+                  </div>
                 </div>
               </div>
             </div>
@@ -49,5 +60,5 @@ export function TypographyScale({ title, samples }: TypographyScaleProps) {
         ))}
       </div>
     </div>
-  );
+  )
 }

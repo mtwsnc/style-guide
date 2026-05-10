@@ -24,7 +24,7 @@ function QuranVerseBlock({
       className={cn(
         "border-l-4 px-6 py-4 bg-white rounded-r-lg",
         isGreen ? "border-primary-green" : "border-sandy-gold",
-        className
+        className,
       )}
     >
       <p
@@ -32,7 +32,7 @@ function QuranVerseBlock({
         lang="ar"
         className={cn(
           "text-right text-deep-forest-green mb-2 leading-[1.8]",
-          isGreen ? "font-riwaya text-[1.25rem]" : "font-uthmanic text-[1.75rem]"
+          isGreen ? "font-riwaya text-[1.25rem]" : "font-uthmanic text-[1.75rem]",
         )}
       >
         {arabic}

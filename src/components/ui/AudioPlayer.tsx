@@ -1,198 +1,199 @@
-"use client";
+"use client"
 
-import React, { useRef, useState, useEffect } from 'react';
-import Image from 'next/image';
-import { Play, Pause, Volume2, VolumeX, SkipBack, SkipForward } from 'lucide-react';
+import { Pause, Play, SkipBack, SkipForward, Volume2, VolumeX } from "lucide-react"
+import Image from "next/image"
+import type React from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface AudioPlayerProps {
-  src: string;
-  title?: string;
-  artist?: string;
-  cover?: string;
+  src: string
+  title?: string
+  artist?: string
+  cover?: string
 }
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({
   src,
   title = "A Glimpse into the Religion of Islam",
   artist = "Masjid Tawheed Was-Sunnah",
-  cover = "/assets/general/eng-islam-audiobook.jpg"
+  cover = "/assets/general/eng-islam-audiobook.jpg",
 }) => {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null)
+  const progressRef = useRef<HTMLDivElement>(null)
 
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [volume, setVolume] = useState(1);
-  const [isMuted, setIsMuted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [duration, setDuration] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [volume, setVolume] = useState(1)
+  const [isMuted, setIsMuted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   // Format time in MM:SS format
   const formatTime = (time: number) => {
-    if (isNaN(time)) return '0:00';
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-  };
+    if (isNaN(time)) return "0:00"
+    const minutes = Math.floor(time / 60)
+    const seconds = Math.floor(time % 60)
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`
+  }
 
   // Set up media session API for system integration
   useEffect(() => {
-    if ('mediaSession' in navigator && audioRef.current) {
+    if ("mediaSession" in navigator && audioRef.current) {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: title,
         artist: artist,
         album: "Islamic Educational Content",
         artwork: [
-          { src: cover, sizes: '256x256', type: 'image/webp' },
-          { src: cover, sizes: '512x512', type: 'image/webp' },
-        ]
-      });
+          { src: cover, sizes: "256x256", type: "image/webp" },
+          { src: cover, sizes: "512x512", type: "image/webp" },
+        ],
+      })
 
-      navigator.mediaSession.setActionHandler('play', () => {
-        audioRef.current?.play();
-        setIsPlaying(true);
-      });
+      navigator.mediaSession.setActionHandler("play", () => {
+        audioRef.current?.play()
+        setIsPlaying(true)
+      })
 
-      navigator.mediaSession.setActionHandler('pause', () => {
-        audioRef.current?.pause();
-        setIsPlaying(false);
-      });
+      navigator.mediaSession.setActionHandler("pause", () => {
+        audioRef.current?.pause()
+        setIsPlaying(false)
+      })
 
-      navigator.mediaSession.setActionHandler('seekbackward', () => {
+      navigator.mediaSession.setActionHandler("seekbackward", () => {
         if (audioRef.current) {
-          audioRef.current.currentTime = Math.max(0, audioRef.current.currentTime - 10);
+          audioRef.current.currentTime = Math.max(0, audioRef.current.currentTime - 10)
         }
-      });
+      })
 
-      navigator.mediaSession.setActionHandler('seekforward', () => {
+      navigator.mediaSession.setActionHandler("seekforward", () => {
         if (audioRef.current) {
-          audioRef.current.currentTime = Math.min(duration, audioRef.current.currentTime + 10);
+          audioRef.current.currentTime = Math.min(duration, audioRef.current.currentTime + 10)
         }
-      });
+      })
     }
-  }, [title, artist, cover, duration]);
+  }, [title, artist, cover, duration])
 
   // Audio event handlers
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    const audio = audioRef.current
+    if (!audio) return
 
-    const updateTime = () => setCurrentTime(audio.currentTime);
+    const updateTime = () => setCurrentTime(audio.currentTime)
     const updateDuration = () => {
       if (audio.duration && !isNaN(audio.duration)) {
-        setDuration(audio.duration);
+        setDuration(audio.duration)
       }
-    };
-    const handleLoadStart = () => setIsLoading(true);
-    const handleCanPlay = () => setIsLoading(false);
-    const handleEnded = () => setIsPlaying(false);
+    }
+    const handleLoadStart = () => setIsLoading(true)
+    const handleCanPlay = () => setIsLoading(false)
+    const handleEnded = () => setIsPlaying(false)
     const handleLoadedData = () => {
       // Audio has enough data to start playing
-      setIsLoading(false);
-    };
+      setIsLoading(false)
+    }
     const handleLoadedMetadata = () => {
       // Metadata (including duration) has been loaded
       if (audio.duration && !isNaN(audio.duration)) {
-        setDuration(audio.duration);
+        setDuration(audio.duration)
       }
-      setIsLoading(false);
-    };
-    const handleWaiting = () => setIsLoading(true);
-    const handleCanPlayThrough = () => setIsLoading(false);
+      setIsLoading(false)
+    }
+    const handleWaiting = () => setIsLoading(true)
+    const handleCanPlayThrough = () => setIsLoading(false)
     const handleError = (e: Event) => {
-      console.error('Audio loading error:', e);
-      setIsLoading(false);
-    };
+      console.error("Audio loading error:", e)
+      setIsLoading(false)
+    }
 
-    audio.addEventListener('timeupdate', updateTime);
-    audio.addEventListener('loadedmetadata', updateDuration);
-    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
-    audio.addEventListener('loadstart', handleLoadStart);
-    audio.addEventListener('canplay', handleCanPlay);
-    audio.addEventListener('loadeddata', handleLoadedData);
-    audio.addEventListener('waiting', handleWaiting);
-    audio.addEventListener('canplaythrough', handleCanPlayThrough);
-    audio.addEventListener('ended', handleEnded);
-    audio.addEventListener('error', handleError);
+    audio.addEventListener("timeupdate", updateTime)
+    audio.addEventListener("loadedmetadata", updateDuration)
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata)
+    audio.addEventListener("loadstart", handleLoadStart)
+    audio.addEventListener("canplay", handleCanPlay)
+    audio.addEventListener("loadeddata", handleLoadedData)
+    audio.addEventListener("waiting", handleWaiting)
+    audio.addEventListener("canplaythrough", handleCanPlayThrough)
+    audio.addEventListener("ended", handleEnded)
+    audio.addEventListener("error", handleError)
 
     // Force load metadata if not already loaded
     if (audio.readyState === 0) {
-      audio.load();
+      audio.load()
     }
 
     return () => {
-      audio.removeEventListener('timeupdate', updateTime);
-      audio.removeEventListener('loadedmetadata', updateDuration);
-      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      audio.removeEventListener('loadstart', handleLoadStart);
-      audio.removeEventListener('canplay', handleCanPlay);
-      audio.removeEventListener('loadeddata', handleLoadedData);
-      audio.removeEventListener('waiting', handleWaiting);
-      audio.removeEventListener('canplaythrough', handleCanPlayThrough);
-      audio.removeEventListener('ended', handleEnded);
-      audio.removeEventListener('error', handleError);
-    };
-  }, [src]);
+      audio.removeEventListener("timeupdate", updateTime)
+      audio.removeEventListener("loadedmetadata", updateDuration)
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata)
+      audio.removeEventListener("loadstart", handleLoadStart)
+      audio.removeEventListener("canplay", handleCanPlay)
+      audio.removeEventListener("loadeddata", handleLoadedData)
+      audio.removeEventListener("waiting", handleWaiting)
+      audio.removeEventListener("canplaythrough", handleCanPlayThrough)
+      audio.removeEventListener("ended", handleEnded)
+      audio.removeEventListener("error", handleError)
+    }
+  }, [src])
 
   const togglePlayPause = async () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) return
 
     try {
       if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
+        audioRef.current.pause()
+        setIsPlaying(false)
       } else {
-        setIsLoading(true);
-        await audioRef.current.play();
-        setIsPlaying(true);
+        setIsLoading(true)
+        await audioRef.current.play()
+        setIsPlaying(true)
       }
     } catch (error) {
-      console.error('Playback failed:', error);
-      setIsPlaying(false);
-      setIsLoading(false);
+      console.error("Playback failed:", error)
+      setIsPlaying(false)
+      setIsLoading(false)
     }
-  };
+  }
 
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!audioRef.current || !progressRef.current) return;
+    if (!audioRef.current || !progressRef.current) return
 
-    const rect = progressRef.current.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const newTime = (clickX / rect.width) * duration;
+    const rect = progressRef.current.getBoundingClientRect()
+    const clickX = e.clientX - rect.left
+    const newTime = (clickX / rect.width) * duration
 
-    audioRef.current.currentTime = newTime;
-    setCurrentTime(newTime);
-  };
+    audioRef.current.currentTime = newTime
+    setCurrentTime(newTime)
+  }
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
+    const newVolume = parseFloat(e.target.value)
+    setVolume(newVolume)
     if (audioRef.current) {
-      audioRef.current.volume = newVolume;
+      audioRef.current.volume = newVolume
     }
-    setIsMuted(newVolume === 0);
-  };
+    setIsMuted(newVolume === 0)
+  }
 
   const toggleMute = () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) return
 
     if (isMuted) {
-      audioRef.current.volume = volume;
-      setIsMuted(false);
+      audioRef.current.volume = volume
+      setIsMuted(false)
     } else {
-      audioRef.current.volume = 0;
-      setIsMuted(true);
+      audioRef.current.volume = 0
+      setIsMuted(true)
     }
-  };
+  }
 
   const skip = (seconds: number) => {
-    if (!audioRef.current) return;
-    const newTime = Math.max(0, Math.min(duration, audioRef.current.currentTime + seconds));
-    audioRef.current.currentTime = newTime;
-    setCurrentTime(newTime);
-  };
+    if (!audioRef.current) return
+    const newTime = Math.max(0, Math.min(duration, audioRef.current.currentTime + seconds))
+    audioRef.current.currentTime = newTime
+    setCurrentTime(newTime)
+  }
 
-  const progressPercentage = duration ? (currentTime / duration) * 100 : 0;
+  const progressPercentage = duration ? (currentTime / duration) * 100 : 0
 
   return (
     <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 max-w-md mx-auto">
@@ -204,7 +205,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         crossOrigin="anonymous"
         onLoadedMetadata={() => {
           if (audioRef.current?.duration && !isNaN(audioRef.current.duration)) {
-            setDuration(audioRef.current.duration);
+            setDuration(audioRef.current.duration)
           }
         }}
       />
@@ -305,7 +306,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
           className="flex-1 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer volume-slider"
           aria-label="Volume control"
           style={{
-            background: `linear-gradient(to right, #407550 0%, #407550 ${(isMuted ? 0 : volume) * 100}%, #e5e7eb ${(isMuted ? 0 : volume) * 100}%, #e5e7eb 100%)`
+            background: `linear-gradient(to right, #407550 0%, #407550 ${(isMuted ? 0 : volume) * 100}%, #e5e7eb ${(isMuted ? 0 : volume) * 100}%, #e5e7eb 100%)`,
           }}
         />
       </div>
@@ -365,7 +366,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default AudioPlayer;
+export default AudioPlayer

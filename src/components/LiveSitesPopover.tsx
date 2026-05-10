@@ -1,76 +1,81 @@
-"use client";
+"use client"
 
-import React, { useState, useRef, useEffect } from 'react';
-import { ExternalLink, Globe } from 'lucide-react';
+import { ExternalLink, Globe } from "lucide-react"
+import type React from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface LiveSite {
-  title: string;
-  url: string;
-  description: string;
+  title: string
+  url: string
+  description: string
 }
 
 const liveSites: LiveSite[] = [
   {
     title: "Main Website",
     url: "mtws.org",
-    description: "Community hub and worship information"
+    description: "Community hub and worship information",
   },
   {
-    title: "Seminars & Events Site", 
+    title: "Seminars & Events Site",
     url: "mtws.one",
-    description: "Educational seminars and community events"
+    description: "Educational seminars and community events",
   },
   {
     title: "Da'wah Portal",
-    url: "dawah.mtws.one", 
-    description: "Islamic outreach and educational resources"
-  }
-];
+    url: "dawah.mtws.one",
+    description: "Islamic outreach and educational resources",
+  },
+]
 
 export const LiveSitesPopover: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const popoverRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const popoverRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   // Close popover when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (popoverRef.current && !popoverRef.current.contains(event.target as Node) &&
-          buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+      if (
+        popoverRef.current &&
+        !popoverRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false)
       }
-    };
+    }
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside)
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isOpen])
 
   // Close popover on escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
+      if (event.key === "Escape") {
+        setIsOpen(false)
       }
-    };
+    }
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
+      document.addEventListener("keydown", handleEscape)
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen]);
+      document.removeEventListener("keydown", handleEscape)
+    }
+  }, [isOpen])
 
   const handleSiteClick = (url: string) => {
-    window.open(`https://${url}`, '_blank', 'noopener,noreferrer');
-    setIsOpen(false);
-  };
+    window.open(`https://${url}`, "_blank", "noopener,noreferrer")
+    setIsOpen(false)
+  }
 
   return (
     <div className="relative">
@@ -79,9 +84,10 @@ export const LiveSitesPopover: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className={`
           flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200
-          ${isOpen 
-            ? 'bg-primary-green text-white shadow-md' 
-            : 'text-gray-700 hover:text-primary-green hover:bg-gray-50'
+          ${
+            isOpen
+              ? "bg-primary-green text-white shadow-md"
+              : "text-gray-700 hover:text-primary-green hover:bg-gray-50"
           }
         `}
         aria-expanded={isOpen}
@@ -90,10 +96,10 @@ export const LiveSitesPopover: React.FC = () => {
       >
         <Globe className="w-4 h-4" />
         Live Sites
-        <svg 
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-          fill="none" 
-          stroke="currentColor" 
+        <svg
+          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
           viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -111,7 +117,7 @@ export const LiveSitesPopover: React.FC = () => {
             <h3 className="text-sm font-semibold text-gray-900">MTWS Digital Ecosystem</h3>
             <p className="text-xs text-gray-500 mt-1">Access our live websites</p>
           </div>
-          
+
           <div className="py-2">
             {liveSites.map((site, index) => (
               <button
@@ -139,12 +145,10 @@ export const LiveSitesPopover: React.FC = () => {
           </div>
 
           <div className="px-4 py-2 border-t border-gray-100">
-            <p className="text-xs text-gray-400 text-center">
-              Click any site to open in a new tab
-            </p>
+            <p className="text-xs text-gray-400 text-center">Click any site to open in a new tab</p>
           </div>
         </div>
       )}
     </div>
-  );
-};
+  )
+}

@@ -1,25 +1,25 @@
-"use client";
+"use client"
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { ChevronLeft, ChevronRight, Home } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home } from "lucide-react"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 interface BreadcrumbItem {
-  label: string;
-  href: string;
+  label: string
+  href: string
 }
 
 interface BreadcrumbProps {
-  items: BreadcrumbItem[];
-  showBackButton?: boolean;
+  items: BreadcrumbItem[]
+  showBackButton?: boolean
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, showBackButton = true }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   const handleBack = () => {
-    router.back();
-  };
+    router.back()
+  }
 
   return (
     <div className="bg-gray-50 border-b border-gray-200">
@@ -39,7 +39,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, showBackButton = true })
               <div key={index} className="flex items-center h-full">
                 <ChevronRight className="w-4 h-4 text-gray-400 mx-2" />
                 {index === items.length - 1 ? (
-                  <span className="text-gray-900 font-medium leading-none flex items-center h-full">{item.label}</span>
+                  <span className="text-gray-900 font-medium leading-none flex items-center h-full">
+                    {item.label}
+                  </span>
                 ) : (
                   <Link
                     href={item.href}
@@ -65,7 +67,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, showBackButton = true })
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Breadcrumb;
+export default Breadcrumb

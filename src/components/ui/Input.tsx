@@ -1,4 +1,4 @@
-import * as React from "react"
+import type * as React from "react"
 import { cn } from "@/lib/utils"
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
@@ -12,7 +12,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary-green focus-visible:border-primary-green",
         "disabled:cursor-not-allowed disabled:opacity-50",
         "aria-invalid:border-red-500 aria-invalid:ring-red-500",
-        className
+        className,
       )}
       {...props}
     />

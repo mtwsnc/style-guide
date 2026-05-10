@@ -1,10 +1,10 @@
-'use client';
+"use client"
 
-import { Navigation } from '@/components/Navigation';
-import { Section } from '@/components/Section';
-import { ColorSwatch } from '@/components/ColorSwatch';
-import { TypographyScale } from '@/components/TypographyScale';
-import { SpacingScale } from '@/components/SpacingScale';
+import { ColorSwatch } from "@/components/ColorSwatch"
+import { Navigation } from "@/components/Navigation"
+import { Section } from "@/components/Section"
+import { SpacingScale } from "@/components/SpacingScale"
+import { TypographyScale } from "@/components/TypographyScale"
 
 export default function FoundationsPage() {
   const brandColors = [
@@ -13,44 +13,44 @@ export default function FoundationsPage() {
       token: "--color-text-primary",
       value: "#000000",
       description: "Primary text color for maximum readability",
-      usage: ["Body text", "Headlines", "High-contrast elements"]
+      usage: ["Body text", "Headlines", "High-contrast elements"],
     },
     {
       name: "Deep Forest Green",
       token: "--color-secondary",
       value: "#132a1a",
       description: "Dark brand accent for depth and sophistication",
-      usage: ["Logo", "Primary navigation", "Section headers", "Hero backgrounds"]
+      usage: ["Logo", "Primary navigation", "Section headers", "Hero backgrounds"],
     },
     {
       name: "Primary Green",
       token: "--color-primary",
       value: "#407550",
       description: "Forest Green — primary brand color for actions and interaction",
-      usage: ["Primary buttons", "Links", "Active states", "Call-to-actions"]
+      usage: ["Primary buttons", "Links", "Active states", "Call-to-actions"],
     },
     {
       name: "Olive Green",
       token: "--color-tertiary",
       value: "#82894d",
       description: "Secondary brand color for balance and natural feel",
-      usage: ["Metadata", "Secondary labels", "Decorative dividers"]
+      usage: ["Metadata", "Secondary labels", "Decorative dividers"],
     },
     {
       name: "Sandy Gold",
       token: "--color-accent",
       value: "#e7d296",
       description: "Warm accent for highlights, badges, and Quranic verse accents",
-      usage: ["Badges", "Highlights", "Quranic verse borders", "Feature icon backgrounds"]
+      usage: ["Badges", "Highlights", "Quranic verse borders", "Feature icon backgrounds"],
     },
     {
       name: "Warm Parchment",
       token: "--color-bg-page",
       value: "#fdfbf5",
       description: "Page background — never pure white",
-      usage: ["Page backgrounds", "Section backgrounds"]
-    }
-  ];
+      usage: ["Page backgrounds", "Section backgrounds"],
+    },
+  ]
 
   const typographySamples = [
     {
@@ -60,7 +60,7 @@ export default function FoundationsPage() {
       lineHeight: "1.1",
       fontWeight: "700 (Bold)",
       token: "--text-headline-lg-*",
-      text: "Headline LG — Main page titles and hero headings"
+      text: "Headline LG — Main page titles and hero headings",
     },
     {
       element: "h2",
@@ -69,7 +69,7 @@ export default function FoundationsPage() {
       lineHeight: "1.2",
       fontWeight: "700 (Bold)",
       token: "--text-headline-md-*",
-      text: "Headline MD — Section titles and feature headings"
+      text: "Headline MD — Section titles and feature headings",
     },
     {
       element: "h3",
@@ -78,7 +78,7 @@ export default function FoundationsPage() {
       lineHeight: "1.3",
       fontWeight: "600 (Semibold)",
       token: "--text-headline-sm-*",
-      text: "Headline SM — Subsection headings and card titles"
+      text: "Headline SM — Subsection headings and card titles",
     },
     {
       element: "p",
@@ -87,7 +87,7 @@ export default function FoundationsPage() {
       lineHeight: "1.7",
       fontWeight: "400 (Regular)",
       token: "--text-body-lg-*",
-      text: "Body LG — Lead paragraphs, intro text, key descriptions."
+      text: "Body LG — Lead paragraphs, intro text, key descriptions.",
     },
     {
       element: "p",
@@ -96,7 +96,7 @@ export default function FoundationsPage() {
       lineHeight: "1.6",
       fontWeight: "400 (Regular)",
       token: "--text-body-md-*",
-      text: "Body MD — Standard body copy for most content. Used throughout pages."
+      text: "Body MD — Standard body copy for most content. Used throughout pages.",
     },
     {
       element: "small",
@@ -105,9 +105,9 @@ export default function FoundationsPage() {
       lineHeight: "1.5",
       fontWeight: "400 (Regular)",
       token: "--text-body-sm-*",
-      text: "Body SM — Captions, metadata, and secondary information"
-    }
-  ];
+      text: "Body SM — Captions, metadata, and secondary information",
+    },
+  ]
 
   const arabicSamples = [
     {
@@ -117,7 +117,7 @@ export default function FoundationsPage() {
       lineHeight: "1.8",
       fontWeight: "400 (Regular)",
       token: "--font-arabic-quran",
-      text: "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ"
+      text: "بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ",
     },
     {
       element: "Arabic Body (29LTRiwaya)",
@@ -126,46 +126,59 @@ export default function FoundationsPage() {
       lineHeight: "1.8",
       fontWeight: "400 (Regular)",
       token: "--font-arabic-body",
-      text: "مسجد التوحيد والسنة — دورهام، كارولاينا الشمالية"
-    }
-  ];
+      text: "مسجد التوحيد والسنة — دورهام، كارولاينا الشمالية",
+    },
+  ]
 
   const spacingValues = [
-    { name: "xs",      token: "--space-xs",      value: "4px",  usage: "Icon gaps, minimal padding" },
-    { name: "sm",      token: "--space-sm",      value: "8px",  usage: "Tight component spacing, badge padding" },
-    { name: "md",      token: "--space-md",      value: "16px", usage: "Standard spacing between elements" },
-    { name: "lg",      token: "--space-lg",      value: "24px", usage: "Card padding, section gutters" },
-    { name: "xl",      token: "--space-xl",      value: "32px", usage: "Large section breaks" },
-    { name: "2xl",     token: "--space-2xl",     value: "48px", usage: "Major section separation" },
-    { name: "3xl",     token: "--space-3xl",     value: "64px", usage: "Hero sections, page headers" },
-    { name: "section", token: "--space-section", value: "80px", usage: "Full page section padding" },
-  ];
+    { name: "xs", token: "--space-xs", value: "4px", usage: "Icon gaps, minimal padding" },
+    {
+      name: "sm",
+      token: "--space-sm",
+      value: "8px",
+      usage: "Tight component spacing, badge padding",
+    },
+    { name: "md", token: "--space-md", value: "16px", usage: "Standard spacing between elements" },
+    { name: "lg", token: "--space-lg", value: "24px", usage: "Card padding, section gutters" },
+    { name: "xl", token: "--space-xl", value: "32px", usage: "Large section breaks" },
+    { name: "2xl", token: "--space-2xl", value: "48px", usage: "Major section separation" },
+    { name: "3xl", token: "--space-3xl", value: "64px", usage: "Hero sections, page headers" },
+    {
+      name: "section",
+      token: "--space-section",
+      value: "80px",
+      usage: "Full page section padding",
+    },
+  ]
 
   const radiusValues = [
-    { name: "sm",   token: "--radius-sm",   value: "4px",    usage: "Badges, chips, tags" },
-    { name: "md",   token: "--radius-md",   value: "8px",    usage: "Buttons, inputs, form elements" },
-    { name: "lg",   token: "--radius-lg",   value: "10px",   usage: "Cards, modals, panels" },
-    { name: "xl",   token: "--radius-xl",   value: "16px",   usage: "Large feature cards, image containers" },
+    { name: "sm", token: "--radius-sm", value: "4px", usage: "Badges, chips, tags" },
+    { name: "md", token: "--radius-md", value: "8px", usage: "Buttons, inputs, form elements" },
+    { name: "lg", token: "--radius-lg", value: "10px", usage: "Cards, modals, panels" },
+    {
+      name: "xl",
+      token: "--radius-xl",
+      value: "16px",
+      usage: "Large feature cards, image containers",
+    },
     { name: "full", token: "--radius-full", value: "9999px", usage: "Pill badges only" },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-warm-background">
       <Navigation />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-deep-forest-green mb-4">
-            Foundations
-          </h1>
+          <h1 className="text-4xl font-bold text-deep-forest-green mb-4">Foundations</h1>
           <p className="text-lg text-gray-700">
-            The atomic elements of our design system. These foundational elements ensure 
-            consistency and accessibility across all digital experiences.
+            The atomic elements of our design system. These foundational elements ensure consistency
+            and accessibility across all digital experiences.
           </p>
         </div>
 
-        <Section 
-          title="Color Palette" 
+        <Section
+          title="Color Palette"
           description="Our carefully selected colors represent the values and identity of MTWS. Each color has specific usage guidelines to maintain consistency and accessibility."
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -180,10 +193,12 @@ export default function FoundationsPage() {
               />
             ))}
           </div>
-          
+
           {/* Accessibility Examples */}
           <div className="mt-8 bg-white rounded-lg border shadow-sm p-6">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Accessible Color Combinations</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              Accessible Color Combinations
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 <div className="bg-warm-background text-high-contrast-black p-4 rounded border">
@@ -209,22 +224,16 @@ export default function FoundationsPage() {
           </div>
         </Section>
 
-        <Section 
-          title="Typography" 
+        <Section
+          title="Typography"
           description="Our typography system uses DM Sans for its excellent readability and modern appearance, with custom Arabic fonts for Islamic content."
         >
-          <TypographyScale 
-            title="English Typography - DM Sans"
-            samples={typographySamples}
-          />
-          
+          <TypographyScale title="English Typography - DM Sans" samples={typographySamples} />
+
           <div className="mt-8">
-            <TypographyScale 
-              title="Arabic Typography - Custom Fonts"
-              samples={arabicSamples}
-            />
+            <TypographyScale title="Arabic Typography - Custom Fonts" samples={arabicSamples} />
           </div>
-          
+
           {/* Font Information */}
           <div className="mt-8 bg-white rounded-lg border shadow-sm p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Font Details</h3>
@@ -265,7 +274,7 @@ export default function FoundationsPage() {
           description="Consistent spacing creates visual rhythm and hierarchy. Our system uses an 8px base grid: 4 · 8 · 16 · 24 · 32 · 48 · 64 · 80px. Container max-width: 1200px, gutters: 24px."
         >
           <SpacingScale values={spacingValues} />
-          
+
           {/* Spacing Examples */}
           <div className="mt-8 bg-white rounded-lg border shadow-sm p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Spacing in Practice</h3>
@@ -276,7 +285,9 @@ export default function FoundationsPage() {
                   <div className="bg-white p-4 rounded shadow-sm">
                     <h5 className="font-semibold mb-2">Card Title</h5>
                     <p className="text-gray-600 text-sm mb-4">Card content with proper spacing</p>
-                    <button className="bg-primary-green text-white px-4 py-2 rounded">Action Button</button>
+                    <button className="bg-primary-green text-white px-4 py-2 rounded">
+                      Action Button
+                    </button>
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 mt-2">
@@ -300,7 +311,9 @@ export default function FoundationsPage() {
                     style={{ borderRadius: r.value }}
                   />
                   <div className="text-center">
-                    <code className="text-xs bg-gray-100 px-2 py-1 rounded block mb-1">rounded-{r.name}</code>
+                    <code className="text-xs bg-gray-100 px-2 py-1 rounded block mb-1">
+                      rounded-{r.name}
+                    </code>
                     <span className="text-xs text-gray-500 block">{r.value}</span>
                     <code className="text-xs text-olive-green font-mono block mt-1">{r.token}</code>
                   </div>
@@ -320,56 +333,126 @@ export default function FoundationsPage() {
               {/* Sample icons would go here - you can expand this */}
               <div className="text-center">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m7 7l5 5l5-5" />
+                  <svg
+                    className="w-6 h-6 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="m7 7l5 5l5-5"
+                    />
                   </svg>
                 </div>
                 <p className="text-xs text-gray-600">Mail</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  <svg
+                    className="w-6 h-6 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                 </div>
                 <p className="text-xs text-gray-600">Phone</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg
+                    className="w-6 h-6 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
                   </svg>
                 </div>
                 <p className="text-xs text-gray-600">Location</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </div>
                 <p className="text-xs text-gray-600">Clock</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                  <svg
+                    className="w-6 h-6 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
+                    />
                   </svg>
                 </div>
                 <p className="text-xs text-gray-600">Share</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </div>
                 <p className="text-xs text-gray-600">Check</p>
               </div>
             </div>
-            
+
             <div className="mt-6 pt-6 border-t border-gray-200">
               <h4 className="font-semibold text-gray-900 mb-2">Icon Guidelines</h4>
               <ul className="text-sm text-gray-600 space-y-1">
@@ -383,5 +466,5 @@ export default function FoundationsPage() {
         </Section>
       </div>
     </div>
-  );
+  )
 }

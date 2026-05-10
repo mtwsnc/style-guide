@@ -4,10 +4,10 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@/main': '../src',
-    };
-    return config;
+      "@/main": "../src",
+    }
+    return config
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

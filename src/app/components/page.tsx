@@ -1,42 +1,77 @@
-'use client';
+"use client"
 
-import { Navigation } from '@/components/Navigation'
-import { Section } from '@/components/Section'
-import { ComponentShowcase } from '@/components/ComponentShowcase'
-import { Button } from '@/components/ui/Button'
-import { Badge } from '@/components/ui/Badge'
-import { QuranVerseBlock } from '@/components/ui/QuranVerseBlock'
-import AudioPlayer from '@/components/ui/AudioPlayer'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card'
-import { Input } from '@/components/ui/Input'
-import Breadcrumb from '@/components/ui/Breadcrumb'
-import { Link, Hash, Component, Play, Navigation as NavIcon, AlertCircle, Layout, Tag, BookOpen } from 'lucide-react'
+import {
+  AlertCircle,
+  BookOpen,
+  Component,
+  Hash,
+  Layout,
+  Link,
+  Navigation as NavIcon,
+  Play,
+  Tag,
+} from "lucide-react"
+import { ComponentShowcase } from "@/components/ComponentShowcase"
+import { Navigation } from "@/components/Navigation"
+import { Section } from "@/components/Section"
+import AudioPlayer from "@/components/ui/AudioPlayer"
+import { Badge } from "@/components/ui/Badge"
+import Breadcrumb from "@/components/ui/Breadcrumb"
+import { Button } from "@/components/ui/Button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card"
+import { Input } from "@/components/ui/Input"
+import { QuranVerseBlock } from "@/components/ui/QuranVerseBlock"
 
 export default function ComponentsPage() {
   const componentSections = [
-    { id: 'audio',     title: 'Audio Player',       icon: Play,      description: 'Media playback with controls' },
-    { id: 'buttons',   title: 'Buttons',             icon: Component, description: 'Interactive buttons and actions' },
-    { id: 'badges',    title: 'Badges',              icon: Tag,       description: 'Status indicators and labels' },
-    { id: 'cards',     title: 'Cards',               icon: Layout,    description: 'Content containers' },
-    { id: 'quran',     title: 'Quranic Verse Block', icon: BookOpen,  description: 'Arabic verse display with translation' },
-    { id: 'forms',     title: 'Forms & Inputs',      icon: Hash,      description: 'Form elements and inputs' },
-    { id: 'navigation',title: 'Navigation',          icon: NavIcon,   description: 'Navigation components' },
-    { id: 'status',    title: 'Status & Feedback',   icon: AlertCircle, description: 'Alerts and status indicators' },
-    { id: 'layout',    title: 'Layout Components',   icon: Layout,    description: 'Structural layout elements' },
+    { id: "audio", title: "Audio Player", icon: Play, description: "Media playback with controls" },
+    {
+      id: "buttons",
+      title: "Buttons",
+      icon: Component,
+      description: "Interactive buttons and actions",
+    },
+    { id: "badges", title: "Badges", icon: Tag, description: "Status indicators and labels" },
+    { id: "cards", title: "Cards", icon: Layout, description: "Content containers" },
+    {
+      id: "quran",
+      title: "Quranic Verse Block",
+      icon: BookOpen,
+      description: "Arabic verse display with translation",
+    },
+    { id: "forms", title: "Forms & Inputs", icon: Hash, description: "Form elements and inputs" },
+    { id: "navigation", title: "Navigation", icon: NavIcon, description: "Navigation components" },
+    {
+      id: "status",
+      title: "Status & Feedback",
+      icon: AlertCircle,
+      description: "Alerts and status indicators",
+    },
+    {
+      id: "layout",
+      title: "Layout Components",
+      icon: Layout,
+      description: "Structural layout elements",
+    },
   ]
 
   return (
     <div className="min-h-screen bg-warm-background">
       <Navigation />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-deep-forest-green mb-4">
-            Components
-          </h1>
+          <h1 className="text-4xl font-bold text-deep-forest-green mb-4">Components</h1>
           <p className="text-lg text-gray-700 mb-8">
-            Live, interactive inventory of every UI component. Each component is rendered 
-            with the exact same code used on our main website, ensuring perfect consistency.
+            Live, interactive inventory of every UI component. Each component is rendered with the
+            exact same code used on our main website, ensuring perfect consistency.
           </p>
 
           {/* Table of Contents */}
@@ -47,7 +82,7 @@ export default function ComponentsPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {componentSections.map((section) => {
-                const IconComponent = section.icon;
+                const IconComponent = section.icon
                 return (
                   <a
                     key={section.id}
@@ -64,14 +99,14 @@ export default function ComponentsPage() {
                       <p className="text-sm text-gray-600">{section.description}</p>
                     </div>
                   </a>
-                );
+                )
               })}
             </div>
           </div>
         </div>
 
-        <Section 
-          title="Audio Player" 
+        <Section
+          title="Audio Player"
           description="Interactive audio player with playback controls and progress tracking."
         >
           <div id="audio">
@@ -99,15 +134,15 @@ export default function ComponentsPage() {
           </div>
         </Section>
 
-        <Section 
-          title="Buttons" 
+        <Section
+          title="Buttons"
           description="Interactive buttons with various styles and states for different use cases."
         >
           <div id="buttons">
-          <ComponentShowcase
-            title="Button Variants"
-            description="All six button variants. Primary fills to Deep Forest on hover; Outline fills with Primary Green; Secondary uses Sandy Gold."
-            code={`import { Button } from '@/components/ui/Button'
+            <ComponentShowcase
+              title="Button Variants"
+              description="All six button variants. Primary fills to Deep Forest on hover; Outline fills with Primary Green; Secondary uses Sandy Gold."
+              code={`import { Button } from '@/components/ui/Button'
 
 <Button>Primary</Button>
 <Button variant="outline">Outline</Button>
@@ -115,19 +150,19 @@ export default function ComponentsPage() {
 <Button variant="ghost">Ghost</Button>
 <Button variant="destructive">Destructive</Button>
 <Button variant="link">Link</Button>`}
-          >
-            <Button>Primary</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="ghost">Ghost</Button>
-            <Button variant="destructive">Destructive</Button>
-            <Button variant="link">Link</Button>
-          </ComponentShowcase>
+            >
+              <Button>Primary</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="ghost">Ghost</Button>
+              <Button variant="destructive">Destructive</Button>
+              <Button variant="link">Link</Button>
+            </ComponentShowcase>
 
-          <ComponentShowcase
-            title="Button Sizes"
-            description="Different button sizes for various layout contexts."
-            code={`import { Button } from '@/components/ui/Button';
+            <ComponentShowcase
+              title="Button Sizes"
+              description="Different button sizes for various layout contexts."
+              code={`import { Button } from '@/components/ui/Button';
 
 // Small button
 <Button size="sm">Small</Button>
@@ -142,21 +177,26 @@ export default function ComponentsPage() {
 <Button size="icon">
   <Icon />
 </Button>`}
-          >
-            <Button size="sm">Small</Button>
-            <Button>Default</Button>
-            <Button size="lg">Large</Button>
-            <Button size="icon">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-            </Button>
-          </ComponentShowcase>
+            >
+              <Button size="sm">Small</Button>
+              <Button>Default</Button>
+              <Button size="lg">Large</Button>
+              <Button size="icon">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+              </Button>
+            </ComponentShowcase>
 
-          <ComponentShowcase
-            title="Button States"
-            description="Visual representation of different button states."
-            code={`import { Button } from '@/components/ui/Button';
+            <ComponentShowcase
+              title="Button States"
+              description="Visual representation of different button states."
+              code={`import { Button } from '@/components/ui/Button';
 
 // Normal state
 <Button>Normal</Button>
@@ -169,17 +209,28 @@ export default function ComponentsPage() {
   <Spinner className="mr-2" />
   Loading...
 </Button>`}
-          >
-            <Button>Normal</Button>
-            <Button disabled>Disabled</Button>
-            <Button disabled className="opacity-70">
-              <svg className="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Loading...
-            </Button>
-          </ComponentShowcase>
+            >
+              <Button>Normal</Button>
+              <Button disabled>Disabled</Button>
+              <Button disabled className="opacity-70">
+                <svg className="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                Loading...
+              </Button>
+            </ComponentShowcase>
           </div>
         </Section>
 
@@ -259,9 +310,7 @@ import { Button } from '@/components/ui/Button';
               <Card className="w-full max-w-md">
                 <CardHeader>
                   <CardTitle>Card Title</CardTitle>
-                  <CardDescription>
-                    Card description or subtitle goes here
-                  </CardDescription>
+                  <CardDescription>Card description or subtitle goes here</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-700">This is the main content area of the card.</p>
@@ -297,9 +346,7 @@ import { Button } from '@/components/ui/Button';
               <Card className="w-full max-w-sm">
                 <CardHeader>
                   <CardTitle>Understanding Tawheed</CardTitle>
-                  <CardDescription>
-                    Shaykh Rasheed Barbee
-                  </CardDescription>
+                  <CardDescription>Shaykh Rasheed Barbee</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2 text-sm text-gray-600">
@@ -438,19 +485,21 @@ import { Button } from '@/components/ui/Button';
               </div>
               <div>
                 <label className="text-sm font-medium block mb-1">Message</label>
-                <textarea 
+                <textarea
                   className="w-full p-3 border border-input rounded-md text-sm resize-none focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                   rows={4}
                   placeholder="Your message..."
                 />
               </div>
-              <Button type="submit" size="sm">Send Message</Button>
+              <Button type="submit" size="sm">
+                Send Message
+              </Button>
             </form>
           </ComponentShowcase>
         </Section>
 
-        <Section 
-          title="Navigation" 
+        <Section
+          title="Navigation"
           description="Navigation components for different contexts and layouts."
         >
           <ComponentShowcase
@@ -492,9 +541,7 @@ import { Button } from '@/components/ui/Button';
                   </a>
                 </li>
                 <li className="text-gray-400">/</li>
-                <li className="text-gray-900 font-medium">
-                  Understanding Tawheed
-                </li>
+                <li className="text-gray-900 font-medium">Understanding Tawheed</li>
               </ol>
             </nav>
           </ComponentShowcase>
@@ -530,24 +577,33 @@ const navItems = [
 </nav>`}
           >
             <nav className="flex space-x-8">
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors">
+              <a
+                href="#"
+                className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors"
+              >
                 About
               </a>
               <a href="#" className="text-sm font-medium text-primary-green">
                 Seminars
               </a>
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors">
+              <a
+                href="#"
+                className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors"
+              >
                 Contact
               </a>
-              <a href="#" className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors">
+              <a
+                href="#"
+                className="text-sm font-medium text-gray-700 hover:text-primary-green transition-colors"
+              >
                 Donate
               </a>
             </nav>
           </ComponentShowcase>
         </Section>
 
-        <Section 
-          title="Status & Feedback" 
+        <Section
+          title="Status & Feedback"
           description="Components for displaying status, alerts, and user feedback."
         >
           <ComponentShowcase
@@ -579,9 +635,7 @@ const navItems = [
             <span className="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
               Cancelled
             </span>
-            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-              Live
-            </span>
+            <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Live</span>
           </ComponentShowcase>
 
           <ComponentShowcase
@@ -614,8 +668,18 @@ const navItems = [
             <div className="space-y-4 w-full max-w-md">
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <div className="flex">
-                  <svg className="h-5 w-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="h-5 w-5 text-green-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                   <div className="ml-3">
                     <p className="text-sm font-medium text-green-800">
@@ -624,11 +688,21 @@ const navItems = [
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <div className="flex">
-                  <svg className="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="h-5 w-5 text-red-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                   <div className="ml-3">
                     <p className="text-sm font-medium text-red-800">
@@ -641,8 +715,8 @@ const navItems = [
           </ComponentShowcase>
         </Section>
 
-        <Section 
-          title="Layout Components" 
+        <Section
+          title="Layout Components"
           description="Structural components for page layout and content organization."
         >
           <ComponentShowcase
@@ -658,9 +732,7 @@ const navItems = [
 </div>`}
           >
             <div className="w-full">
-              <h1 className="text-4xl font-bold text-deep-forest-green mb-4">
-                Page Title
-              </h1>
+              <h1 className="text-4xl font-bold text-deep-forest-green mb-4">Page Title</h1>
               <p className="text-lg text-gray-700">
                 Page description or subtitle that provides context about the content.
               </p>
@@ -687,14 +759,12 @@ const navItems = [
           >
             <section className="w-full">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                  Section Title
-                </h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Section Title</h2>
                 <p className="text-lg text-gray-600">
                   Section description explaining the content below.
                 </p>
               </div>
-              
+
               <div className="border-t border-gray-200 pt-8">
                 <p className="text-gray-600">Section content goes here...</p>
               </div>
@@ -703,5 +773,5 @@ const navItems = [
         </Section>
       </div>
     </div>
-  );
+  )
 }
